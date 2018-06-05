@@ -49,7 +49,7 @@ countries %>% head()
 
 new_country <- countries %>% 
   left_join(pop, by = 'country_code') %>% 
-  select(country.code, country_code, iso3 = iso3c, total, pop = `2015`) %>% 
+  select(country.code, country_code, iso3, total, pop = `2015`) %>% 
   mutate(ratio = round(total/pop*1000,3))
 
 
