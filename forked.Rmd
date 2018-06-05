@@ -1,3013 +1,2180 @@
 ---
-title: "Know the Developers in 2018"
-author: "Bukun"
-output:
+title: "Detailed EDA : StackOverflow Survey 2018"
+author: "Ankur Singh & Ankush Jain"
+date: "May 31, 2018"
+output: 
   html_document:
-    number_sections: true
-    toc: true
-    fig_width: 10
     code_folding: hide
-    fig_height: 4.5
-    theme: cosmo
-    highlight: tango
+    toc: TRUE
 ---
 
-
-#Introduction
-
-* More than **80%** of the respondents consider Coding as a Hobby.  
-
-The total analysis is divided into a couple of subject areas such as 
-
-* Desire to Learn in Next Year    
-
-* Lifestyle Analysis 
-
-* Salary Analysis
-
-* AI Viewpoint Analysis      
-
-* Job Assessment Analysis
-
-* Job Benefits Analysis       
-
-* Developer mentalities       
-
-* Ethics analysis       
-
-* StackOverflow Inclusivity analysis        
-
-* Hypothetical Tools Interest     
-
-* **Persona** analysis of Engineering Managers, C- Suite Execs, Devops Specialists, Front End Developers, Back End Developers , Data Scientists and Business Analysts      
-
-
-The reader may read the summary here and proceed in detail for the graphs. The graphs here are simple but pragmatic.       
-
-
-<hr/>
-
-<b> Desire to Learn in Next Year </b>
-
-<hr/>
-
-* Linux. Android and AWS are the top **Platforms** which respondents want to learn next year         
-
-* Node,React  and Angular are the top **Frameworks** which respondents want to learn next year         
-
-* MySQL, MongoDB and PostgreSQL are the top **Databases** which respondents want to learn next year       
-
-* JavaScript,Python, HTML are the top **Languages** which respondents want to learn next year        
-
-* Visual Studio Code, Visual Studio and Notepad++ are the top **IDE** which respondents want to learn next year          
-
-* Git, Subversion and Team Foundation Version Control are the top **Version Control**  tools that the respondents use.         
-
-* Slack, Jira, Office productivity tools are the top **Communication** tools that the respondents use.           
-
-* Agile, Scrum , Kanban are the top **Methodology** tools that respondents are using.       
-
-
-<hr/>
-**Lifestyle Analysis**       
-<hr/> 
-
-* 9-12 hours is the most popular (38%) time interval that developers spend in front of the computer.          
-
-* 1-2 hours is the most popular (28%) time interval that developers hours outside.          
-
-* Most devs (46%) never skip meals        
-
-* Ergonomic Keyboard or mouse , Standing desk , both 10% of the population are the most popular ergonomic devices used by the developers.        
-
-<hr/>
-**Salary Analysis**       
-<hr/> 
-
-* Engineering Manager, DevOps Specialist, C Suite executive are the top positions which have the highest salaries.        
-
-* United States, Switzerland, Israel, Norway and Denmark are the countries with the highest median salaries with respondents of 100 or more.          
-
-* The highest median salary for `25-34 years` old is **95K**. US, Switzerland , Israel , Denmark and Australia are the top Five countries which has the highest salaries in this group. 
-
-* The highest median salary for `35-44 years` old is **495K** followed by more acceptable **120K**. Venezuala, US, Switzerland , Israel , Denmark and Norway are the top Six countries which has the highest salaries in this group.           
-
-* The highest median salary for `45-54 years` old is **1000K** followed by more acceptable **130K**. Venezuala, HongKong, Switzerland , US, Ireland , Israel , Denmark and UAE are the top Eight countries which has the highest salaries in this group.          
-       
-* Marketing or Sales Professional, C Suite Executives, Academic Researchers , Engineering Managers and Product Managers get the highest salary in USA. 
-
- 
-<hr/>
-**AI Viewpoint Analysis**       
-<hr/> 
-
-According to the StackOverflow respondents
-
-* AI is **interesting**  because it would result in increasing the automation of jobs ( 27%) , algorithms would make interesting decisions(15%)       
-
-* AI **responsibility**  would be in the hands of people developing or creating AI (32% ), government or regulatory body (18%)                
-
-* AI **future** views are Excited more about the possibilities than about the dangers ( 51%) , Worried about the dangers more than excited about the possibilities (13%)        
-
-<hr/>
-**Job Assessment**
-<hr/>
-
-The questions have been framed on different topics for developers on how they assess the job. The framework of the questions have 1 with the most important and 10 is the least important.         
-
-Developors provide the **Most Importance**  to               
-
-* The languages, frameworks, and other technologies                 
-
-* The compensation and benefits          
-
-* The office environment or company culture          
-
-* Opportunities for professional development               
-
-* The opportunity to work from home/remotely     
-
-<hr/>
-**Job Benefits Assessment**
-<hr/>
-
-The developers have assessed a **job benefits package** and provided ratings. ( 1- Most Important, 11 - Least Important).
-
-The most important factors while assessing the job benefits package are
-
-*  Salary and/or bonuses         
-
-*  Stock options or shares       
-
-*  Health insurance        
-
-* Retirement or pension savings matching  
-
-* Computer/office equipment allowance      
-
-* Conference or education budget               
-
-<hr/>
-**Developer mentalities**
-<hr/>
-
-We explore the Developer mentalities here. 
-
-* Developers have sense of kinship or connection to other developers    
-
-* Developers agree they have a competition among peers       
-
-* They also agree they are as good as other developers        
-
-
-<hr/>
-**Ethics analysis**
-<hr/>
-
-* Most developers will not write unethical code             
-
-* Regarding reporting unethical code, developers would report after assessing what it is         
-
-* The developers feel the ethics repsonsibility stands with the upper management at the company        
-
-* The developers also feel that they are obligated to consider the ethical implications of the code that they write
-
-<hr/>
-**StackOverflow Inclusivity analysis**
-<hr/>
-
-* Most Developers would recommend StackOverflow to a friend or colleague            
-
-* Most Developers visit StackOverflow almost daily           
-
-* Most Developers have a StackOverflow account         
-
-* Most Developers participate in Q&A less than once a month/monthly in  on Stack Overflow           
-
-* Most Developers have visited StackOverflow Jobs       
-
-* Most Developers are unaware of the Stack Overflow Developer Story feature         
-
-* Most Developers would recommend Stack Overflow Jobs to a friend or colleague                        
-
-* Most Developers consider themselves as  a member of the Stack Overflow community    
-
-<hr/>
-**Hypothetical Tools Interest**
-<hr/>
-
-Most Developers show the following interests for the Hypothetical Tools
-
-* Not At all Interested for A private area for people new to programming
-
-* Somewhat Interested for A programming-oriented blog platform
-
-* **Very Interested** for `An employer or job review system`
-
-* Somewhat Interested for An area for Q&A related to career growth
-
-#Read Data
-
-```{r,message=FALSE,warning=FALSE}
-
-library(tidyverse)
+## Motivation For this Notebook
+
+Recently we have observed that most of our fellow community members at Kaggle are developing very simple and similar graphs using the same old libraries, without any interesting approaches or any kind of interactivity (apart from bouncing labels ;) ).
+So, we decided to try some new and different kind of graphs among the vast number of libraries that are available online for data visualization. Hence we present this Kernel with some interesting graphs - DrillDown Charts, Network Plots & Motion Plots.
+Constructive criticism will be appreciated. Please upvote our work! Your support will motivate us to try more cool stuff and bring it to the community.
+
+<center><img src="https://cdn-images-1.medium.com/max/1000/1*tBGHrk548cAdfrpk2hhXhA.png"></center>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,echo=FALSE,results='hide'}
+library(dplyr)
+library(highcharter)
+library(tidyr)
+library(viridisLite)
+library(countrycode)
+library(ggplot2)
+library(gdata)
+library(purrr)
+library(rworldmap)
+library (igraph)
+library(visNetwork)
+library(randomcoloR)
+library(readr)
 library(stringr)
 library(scales)
-
-library(tidytext)
-library(igraph)
-library(ggraph)
-
-library(treemap)
-
-rm(list=ls())
-
-fillColor = "#FFA07A"
-fillColor2 = "#F1C40F"
-fillColorLightCoral = "#F08080"
-
-survey_results <- read_csv("input/survey_results_public.csv")
-
+library(reshape2)
 ```
 
-#Glimpse of Data
-
-```{r,message=FALSE,warning=FALSE}
-
-glimpse(survey_results)
-
+```{r,echo=FALSE,results='hide'}
+survey_results_public <- read.csv("input/survey_results_public.csv",stringsAsFactors =FALSE)
+thm <- hc_theme_merge(
+  hc_theme_darkunica(),
+  hc_theme(
+    chart = list(
+      backgroundColor = "transparent",
+      divBackgroundImage = "http://cdn.wall-pix.net/albums/art-3Dview/00025095.jpg"
+    ),
+    title = list(
+      style = list(
+        color = 'white',
+        fontFamily = "Open Sans"
+      )
+    )
+  )
+)
 ```
+<hr>
+# A. Developer Profile Analysis
+<hr>
+This section deals with the analysis of the most important aspect of Stack Overflow - its community. It shows a detailed analysis of the various metrics that were explored during the EDA.
+We will take a detailed look at the Country, Education, Non-Degree Education Sources, Occupations, Job Experience, Demographics (such as Gender, Age) and the overall satisfaction of the users with Stack Overflow and its community. 
+
+## 1. What is their Country?
+
+### 1.1 All Respondents by Country
+
+```{r}
+
+data(worldgeojson, package = "highcharter")
+
+by_country <- survey_results_public %>% select(Country) %>% filter(!is.na(Country)) %>%group_by(Country) %>% summarise(n1=n())
+code <- countrycode(by_country$Country, 'country.name', 'iso3c')
+by_country$iso3 <- code
 
 
-#Participation by Country
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_country = survey_results %>%
-  group_by(Country) %>%
-  summarise(Count = n()) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(Country = reorder(Country,Count)) %>%
-  head(20) 
+p_by_country <- highchart() %>% 
+                  hc_add_series_map(worldgeojson, by_country, value = "n1", joinBy = "iso3") %>% 
+                  hc_colorAxis(stops = color_stops()) %>% 
+                  hc_legend(enabled = TRUE) %>%  
+                  hc_mapNavigation(enabled = TRUE) %>%
+                  hc_title(text = "Respondent by Country")  %>%
+                  hc_tooltip(useHTML = TRUE, headerFormat = "",
+                            pointFormat = "Country: {point.Country} Total Respondent: {point.n1}") %>%  hc_add_theme(hc_theme_google())
 
 
-treemap(survey_country, 
-        index="Country", 
-        vSize = "Count",  
-        title="Participation by Country", 
-        palette = "RdBu",
-        fontsize.title = 14 
+professionals_result <- survey_results_public %>% filter(Student=="No")
+
+professionals_by_country <- professionals_result %>% select(Country) %>% filter(!is.na(Country)) %>%group_by(Country) %>% summarise(n2=n())
+code <- countrycode(professionals_by_country$Country, 'country.name', 'iso3c')
+professionals_by_country$iso3 <- code
+
+combined_result <- by_country %>% left_join(professionals_by_country, by="iso3") %>% select(iso3, Country.x, n1, n2)
+names(combined_result) <- c("iso3", "Country", "n1", "n2")
+
+data(worldgeojson, package = "highcharter")
+
+p_professionals_by_country <- highchart() %>% 
+                              hc_add_series_map(worldgeojson, combined_result, value = "n2", joinBy = "iso3") %>% 
+                              hc_colorAxis(stops = color_stops()) %>% 
+                              hc_legend(enabled = TRUE) %>% 
+                              #hc_add_theme(hc_theme_google()) %>% 
+                              hc_mapNavigation(enabled = TRUE) %>%
+                              hc_title(text = "Professionals Respondent by Countries")  %>%
+                              hc_tooltip(useHTML = TRUE, headerFormat = "",
+                                        pointFormat = "Country: {point.Country} Professionals: {point.n2} Total Respondent: {point.n1}") %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_country,
+  p_professionals_by_country
 )
 
+hw_grid(lst, rowheight = 350)
+
 ```
 
+#### **Insight**
 
-#Hobbies Analysis
++ The first graph gives the number of respondents that belong to each country. It can be observed that the top 3 highest number of respondents from various countries are:
+    1. United States : 20309
+    2. India : 13721
+    3. Germany : 6459
++ The second graph gives the number of professional respondents that belong to each country. It can be observed that the top 3 highest number of respondents who are 'Professional' from various countries are:
+    1. United States : 17220
+    2. India : 8228
+    3. United Kingdom : 5354
 
-```{r,message=FALSE,warning=FALSE}
+## 2 What is their Education?
 
-TotalNoofRows = nrow(survey_results)
+### 2.1 Are they Student?
 
-survey_results %>%
-  group_by(Hobby) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(Hobby = reorder(Hobby,Count)) %>%
+```{r}
+
+by_Student <- survey_results_public %>%
+                        filter(!is.na(Student)) %>%
+                        group_by(Student) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(Student = reorder(Student,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_Student$Student) %>% 
+  hc_add_series(name = "Percent %", data = by_Student$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Are Respondent Student")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ It can be observed that 74% are not students while the remaining 26% are students.
+
+### 2.2 Formal Education
+
+```{r}
+
+by_FormalEducation <- survey_results_public %>%
+                        filter(!is.na(FormalEducation)) %>%
+                        group_by(FormalEducation) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(FormalEducation = reorder(FormalEducation,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100)) %>%
+                        head(10)
+
+p_by_FormalEducation <- highchart() %>%
+                          hc_xAxis(categories = by_FormalEducation$FormalEducation) %>% 
+                          hc_add_series(name = "Percent %", data = by_FormalEducation$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Formal Education of Respondent")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+
+by_UndergradMajor <- survey_results_public %>%
+                        filter(!is.na(UndergradMajor)) %>%
+                        group_by(UndergradMajor) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(UndergradMajor = reorder(UndergradMajor,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100)) %>%
+                        head(10)
+
+p_by_UndergradMajor <-  highchart() %>%
+                          hc_xAxis(categories = by_UndergradMajor$UndergradMajor) %>% 
+                          hc_add_series(name = "Percent %", data = by_UndergradMajor$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Main Field of Study of Respondent")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+
+lst <- list(
+  p_by_FormalEducation,
+  p_by_UndergradMajor
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ In first graph, it illustrates that majority of respondents are Bachelor's Degree holders, followed by Master's Degree holders & other college graduates.
++ In second graph, it illustrates that Computer Science, Computer Engineering or Software Engineering is the main field of study of respondents at 64%.
+
+
+### 2.3 Non-Degree Education
+
+```{r}
+
+by_EducationTypes <-    survey_results_public %>% 
+                        select(Respondent,EducationTypes) %>% 
+                        mutate(EducationTypes = strsplit(as.character(EducationTypes), ";")) %>% 
+                        unnest(EducationTypes) %>%
+                        filter(!is.na(EducationTypes)) %>%
+                        group_by(EducationTypes) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(EducationTypes = reorder(EducationTypes,Total)) %>%
+                        mutate(Percent = round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+p_by_EducationTypes <- highchart() %>%
+                          hc_xAxis(categories = by_EducationTypes$EducationTypes) %>% 
+                          hc_add_series(name = "Percent %", data = by_EducationTypes$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Non-Degree Education of Respondent")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+by_SelfTaughtTypes <-   survey_results_public %>% 
+                        select(Respondent,SelfTaughtTypes) %>% 
+                        mutate(SelfTaughtTypes = strsplit(as.character(SelfTaughtTypes), ";")) %>% 
+                        unnest(SelfTaughtTypes) %>%
+                        filter(!is.na(SelfTaughtTypes)) %>%
+                        group_by(SelfTaughtTypes) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(SelfTaughtTypes = reorder(SelfTaughtTypes,Total)) %>%
+                        mutate(Percent = round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+p_by_SelfTaughtTypes <- highchart() %>%
+                          hc_xAxis(categories = by_SelfTaughtTypes$SelfTaughtTypes) %>% 
+                          hc_add_series(name = "Percent %", data = by_SelfTaughtTypes$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Self Taught Types Education of Respondent")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_EducationTypes,
+  p_by_SelfTaughtTypes
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ In first graph, Non-Degree Educated respondents have educated themselves in the various ways as illustrated. Most common sources of gaining knowledge are Self Learning at 60%, followed by Online Courses at 33% and Open Source Contribution at 28%.
++ In second graph, it further elaborate the Self Taught Respondents. Most common self teaching methodology includes reading Official Documentation at 48%, Q&A at SO at 48% and Books & E-Books at 29%.
+
+### 2.4 Types of Non-Degree Education Vs Time to get a Full-time Job as a Developer
+
+```{r}
+
+survey_results_public2 <-  survey_results_public %>%    mutate(EducationTypes = strsplit(as.character(EducationTypes), ";"))  %>%
+                                                        unnest(EducationTypes)
+
+df1 <- survey_results_public2 %>%
+       filter(!is.na(EducationTypes)) %>%
+       group_by(name = EducationTypes, drilldown = tolower(EducationTypes)) %>% 
+       summarise(y = n()) %>% arrange(desc(y))
+
+df2 <-survey_results_public2 %>% filter(!is.na(EducationTypes)) %>% filter(!is.na(TimeAfterBootcamp)) %>% group_by(EducationTypes,TimeAfterBootcamp) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = EducationTypes, id = tolower(EducationTypes),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = TimeAfterBootcamp, drilldown = tolower(paste(EducationTypes,TimeAfterBootcamp,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) 
+    )
+    
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Types of Non-Degree Education Vs Time to get a Full-time Job as a Developer ') %>%
+  hc_add_series(data = df1, name = "Types of Non-Degree Education",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ Note : It's a Drill down graph.
++ This graph illustrates the amount of time taken by Respondents in getting a Full Time Job as a Developer after gaining knowledge from Non Degree Education sources.
++ On upper level it illustrates the number of repondents for each source. But after drill down it shows the number of respondents in different time intervals.
++ It has been observed that most repondents were 'Already Full Time Developers' in each of the knowledge source.
+
+### 2.5 Network Analysis : Education Types
+
+```{r}
+
+df <- survey_results_public %>% select(Respondent,EducationTypes)
+df2 <- df %>% 
+         mutate(EducationTypes = strsplit(as.character(EducationTypes), ";")) %>% 
+         unnest(EducationTypes)
+         
+df2_edges <- df2 %>% group_by(Respondent) %>%
+             filter(n()>=2) %>%
+             do(data.frame(t(combn((.)[["EducationTypes"]], 2)), stringsAsFactors=FALSE)) %>% ungroup() %>%
+             rename(source = X1, target = X2) %>%
+             select(-Respondent)
+
+df2_edges <- df2_edges %>% group_by(source,target) %>% summarise(weight=n())
+
+names(df2_edges) <- c("from","to","weight")
+df2_edges$weight <- df2_edges$weight/1500
+
+df2_edges$width <- 1+df2_edges$weight # line width
+df2_edges$color <- "gray"    # line color  
+#df2_edges$arrows <- "middle" # arrows: 'from', 'to', or 'middle'
+df2_edges$smooth <- FALSE    # should the edges be curved?
+df2_edges$shadow <- FALSE    # edge shadow
+
+df2_nodes <- df2 %>% filter(!is.na(EducationTypes)) %>% group_by(EducationTypes) %>% summarise(n = n()/1000) %>% arrange(desc(n))
+names(df2_nodes) <- c("id","size")
+
+n <- nrow(df2_nodes)
+palette <- distinctColorPalette(n)
+
+df2_nodes$shape <- "dot"  
+df2_nodes$shadow <- TRUE # Nodes will drop shadow
+df2_nodes$title <- df2_nodes$id # Text on click
+df2_nodes$label <- df2_nodes$id # Node label
+df2_nodes$size <- df2_nodes$size # Node size
+df2_nodes$borderWidth <- 2 # Node border width
+
+df2_nodes$color.background <- palette[as.numeric(as.factor(df2_nodes$id))]
+df2_nodes$color.border <- "black"
+df2_nodes$color.highlight.background <- "orange"
+df2_nodes$color.highlight.border <- "darkred"
+
+df2_nodes <- df2 %>% filter(!is.na(EducationTypes)) %>% group_by(EducationTypes) %>% summarise(n = n()/1000) %>% arrange(desc(n))
+names(df2_nodes) <- c("id","size")
+
+n <- nrow(df2_nodes)
+palette <- distinctColorPalette(n)
+
+df2_nodes$shape <- "dot"  
+df2_nodes$shadow <- TRUE # Nodes will drop shadow
+df2_nodes$title <- df2_nodes$id # Text on click
+df2_nodes$label <- df2_nodes$id # Node label
+df2_nodes$size <- df2_nodes$size # Node size
+df2_nodes$borderWidth <- 2 # Node border width
+
+df2_nodes$color.background <- palette[as.numeric(as.factor(df2_nodes$id))]
+df2_nodes$color.border <- "black"
+df2_nodes$color.highlight.background <- "orange"
+df2_nodes$color.highlight.border <- "darkred"
+
+visNetwork(df2_nodes, df2_edges, height = "500px", width = "100%") %>% visIgraphLayout(layout = "layout_with_lgl") %>% 
+  visEdges(shadow = TRUE,
+           color = list(color = "gray", highlight = "orange"))
+```
+
+#### **Insight**
+
++ This is a Network Graph for the different Non Degree Education sources.
++ Each node denotes the different education source and the size of node denotes the number of respondents that used the particular source.
++ Each connecting edge between any two nodes denotes that the respondents chose both the education sources. And, the width of the edge denotes the number of users that chose both the education sources. 
++ It can be observed that the top 5 highest correlation is between:
+    1. 'Taught yourself a new language...' --- 'Taken an online course...'
+    2. 'Taught yourself a new language...' --- 'Contributed to open source software'
+    3. 'Taught yourself a new language...' --- 'Received on the job training in software development'
+    4. 'Taught yourself a new language...' --- 'Participated in a hackathon'
+    5. 'Taken an online course...' --- 'Contributed to open source software'
++ This means that all the people who chose the first option among the above also chose the second option.
+
+### 2.6 Hackathon Reasons
+
+```{r}
+
+by_HackathonReasons <-   survey_results_public %>% 
+                        select(Respondent,HackathonReasons) %>% 
+                        mutate(HackathonReasons = strsplit(as.character(HackathonReasons), ";")) %>% 
+                        unnest(HackathonReasons) %>%
+                        filter(!is.na(HackathonReasons)) %>%
+                        group_by(HackathonReasons) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(HackathonReasons = reorder(HackathonReasons,Total)) %>%
+                        mutate(Percent = round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_HackathonReasons$HackathonReasons) %>% 
+  hc_add_series(name = "Percent %", data = by_HackathonReasons$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Reasons For Participating in Hackathon")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This is a bar graph illustrating the various reassons given by the respondents for participating in the hackathons.
++ The top 3 most common reasons are:
+    1. 'Beacause I find it enjoyable' : 20%
+    2. 'To improve my general technical skills or programming ability' : 17%
+    3. 'To improve my knowledge of a specific programming language...' : 13%
+
+## 3. What is their Occupation?
+
+### 3.1 DevType : Describe you
+
+```{r}
+
+by_DevType <-   survey_results_public %>% 
+                        select(Respondent,DevType) %>% 
+                        mutate(DevType = strsplit(as.character(DevType), ";")) %>% 
+                        unnest(DevType) %>%
+                        filter(!is.na(DevType)) %>%
+                        group_by(DevType) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(DevType = reorder(DevType,Total)) %>%
+                        mutate(Percent = round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_DevType$DevType) %>% 
+  hc_add_series(name = "Percent %", data = by_DevType$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Developer Type")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the different kind of developers.
++ There are 10 type of developers.
++ The top 3 most commonn types are:
+    1. Back-end developer : 54%
+    2. Full-stack developer : 45%
+    3. Front-end developer : 35%
+    4. Mobile developer : 19%
+    5. Desktop or enterprise application developer : 16%
+
+### 3.2 Network Analysis : DevType
+
+```{r}
+
+df <- survey_results_public %>% select(Respondent,DevType)
+df2 <- df %>% 
+         mutate(DevType = strsplit(as.character(DevType), ";")) %>% 
+         unnest(DevType)
+         
+df2_edges <- df2 %>% group_by(Respondent) %>%
+             filter(n()>=2) %>%
+             do(data.frame(t(combn((.)[["DevType"]], 2)), stringsAsFactors=FALSE)) %>% ungroup() %>%
+             rename(source = X1, target = X2) %>%
+             select(-Respondent)
+
+df2_edges <- df2_edges %>% group_by(source,target) %>% summarise(weight=n())
+
+
+names(df2_edges) <- c("from","to","weight")
+df2_edges$weight <- df2_edges$weight/1500
+
+df2_edges$width <- 1+df2_edges$weight # line width
+df2_edges$color <- "gray"    # line color  
+#df2_edges$arrows <- "middle" # arrows: 'from', 'to', or 'middle'
+df2_edges$smooth <- FALSE    # should the edges be curved?
+df2_edges$shadow <- FALSE    # edge shadow
+
+df2_nodes <- df2 %>% filter(!is.na(DevType)) %>% group_by(DevType) %>% summarise(n = n()/700) %>% arrange(desc(n))
+names(df2_nodes) <- c("id","size")
+
+n <- nrow(df2_nodes)
+palette <- distinctColorPalette(n)
+
+df2_nodes$shape <- "dot"  
+df2_nodes$shadow <- TRUE # Nodes will drop shadow
+df2_nodes$title <- df2_nodes$id # Text on click
+df2_nodes$label <- df2_nodes$id # Node label
+df2_nodes$size <- df2_nodes$size # Node size
+df2_nodes$borderWidth <- 2 # Node border width
+
+df2_nodes$color.background <- palette[as.numeric(as.factor(df2_nodes$id))]
+df2_nodes$color.border <- "black"
+df2_nodes$color.highlight.background <- "orange"
+df2_nodes$color.highlight.border <- "darkred"
+
+visNetwork(df2_nodes, df2_edges, height = "500px", width = "100%") %>% visIgraphLayout(layout = "layout_with_lgl") %>% 
+  visEdges(shadow = TRUE,
+           color = list(color = "gray", highlight = "orange"))
+```
+
+#### **Insight**
+
++ This is a network graph for the different types of developers.
++ Each node represents the type of developer and the size of node denotes the number of developers belonging to each type.
++ Each connecting edge between any two nodes denotes that the respondents chose both the developer types. The width of each edge denotes the nmber of respondents that chose both the developer types.
++ It can be observed that the top 5 highest correlation is between:
+    1. Back end developer --- Full stack developer
+    2. Front end developer --- Full stack developer
+    3. Back end developer --- Front end developer
+    4. Full stack developer --- Database administrator
+    5. Desktop or enterprise application developer --- Back end developer
+
+### 3.3 Who are the Open Source project contributors?
+
+```{r}
+
+survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
+                                                        unnest(DevType)
+
+df1 <- survey_results_public2 %>%
+       filter(!is.na(OpenSource)) %>%
+       group_by(name = OpenSource, drilldown = tolower(OpenSource)) %>% 
+       summarise(y = n()) %>% arrange(desc(y))
+
+df2 <-survey_results_public2 %>% filter(!is.na(OpenSource)) %>% filter(!is.na(DevType)) %>% group_by(OpenSource,DevType) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = OpenSource, id = tolower(OpenSource),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = DevType, drilldown = tolower(paste(OpenSource,DevType,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) 
+    )
+    
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Who Contributed to opensource') %>%
+  hc_add_series(data = df1, name = "Is Contributed to opensource",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ Note : It's a Drill down graph.
++ This graph illustrates the detailed analysis of Open Source contributors.
++ At upper level the graph illustrates whether the respondent answered Yes or No for Open Source project contribution.
++ At deeper level for each answer choice, the graph illustrates the number of respondents belonging to each developer type.
++ Yes : 135508
++ No : 147354
++ Top 3 developer types with highest respondents choosing "Yes" are:
+    1. Back-end developer : 24717
+    2. Full-stack developer : 15949
+    3. Front-end developer : 20829
++ Top 3 developer types with highest respondents choosing "No" are:
+    1. Back-end developer : 28583
+    2. Full-stack developer : 23524
+    3. Front-end developer : 18873
+
+### 3.4 Coding as Hobby
+
+
+```{r}
+
+survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
+                                                        unnest(DevType)
+
+df1 <- survey_results_public2 %>%
+       filter(!is.na(Hobby)) %>%
+       group_by(name = Hobby, drilldown = tolower(Hobby)) %>% 
+       summarise(y = n()) %>% arrange(desc(y))
+
+df2 <-survey_results_public2 %>% filter(!is.na(Hobby)) %>% filter(!is.na(DevType)) %>% group_by(Hobby,DevType) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = Hobby, id = tolower(Hobby),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = DevType, drilldown = tolower(paste(Hobby,DevType,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) 
+    )
+    
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Who have code as Hobby') %>%
+  hc_add_series(data = df1, name = "Is Coding Hobby",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ Note : It's a Drill down graph.
++ This graph illustrates the detailed analysis of 'Is Coding a Hobby' respondents.
++ At upper level the graph illustrates whether the respondent answered Yes or No for 'Is Coding a Hobby'.
++ At deeper level for each answer choice, the graph illustrates the number of respondents belonging to each developer type.
++ Yes : 235293
++ No : 46569
++ Top 3 developer types with highest respondents choosing "Yes" are:
+    1. Back-end developer : 43791
+    2. Full-stack developer : 36815
+    3. Front-end developer : 28827
++ Top 3 developer types with highest respondents choosing "No" are:
+    1. Back-end developer : 9509
+    2. Full-stack developer : 7538
+    3. Front-end developer : 5995
+
+## 4. What is their Experience?
+
+### 4.1 No. of Years Coded Vs No. of Years Coded Professionally
+
+
+```{r}
+
+df1 <- survey_results_public %>% filter(!is.na(YearsCoding)) %>%
+  group_by(name = YearsCoding, drilldown = tolower(YearsCoding)) %>% 
+  summarise(y = n()) %>% arrange(desc(y)) %>% head(10)
+
+
+df2 <-survey_results_public %>% filter(!is.na(YearsCoding)) %>% filter(!is.na(YearsCodingProf)) %>%  group_by(YearsCoding,YearsCodingProf) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = YearsCoding, id = tolower(YearsCoding),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = YearsCodingProf, drilldown = tolower(paste(YearsCoding,YearsCodingProf,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y)))
+    )
+
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'No Of Years Coding Vs No Of Years Coded Professionally') %>%
+  hc_add_series(data = df1, name = "No Of Years Coding",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_yAxis(title = list(text = "Total Response"))  %>%
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series = list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ Note : It's a Drill down graph.
++ This graph illustrates the detailed analysis of 'No. of years Coding' and 'No. of years Coding Professionally' respondents.
++ At upper level the graph illustrates the number of respondents for each interval of 'No. of years Coding'.
++ At deeper level for each interval of 'No. of years Coding', the graph illustrates the 'No. of years Coding professionally' for the repondents.
++ For example some X people have coded for 6-8 years, then after drilling down, we will find out that out of 6-8 years, for how many years they have coded professionally.
++ Top 3 categories with highest number of respondents are:
+    1. 3-5 years : 23313
+        Professional Coding Years
+            1. 0-2 years : 10104
+            2. 3-5 years : 8126
+            
+    2. 6-8 years : 19338 : 
+        Professional Coding Years
+            1. 3-5 years : 7678
+            2. 0-2 years : 4753
+            3. 6-8 years : 4064
+            
+    3. 9-11 years : 12169
+        Professional Coding Years
+            1. 6-8 years : 3616
+            2. 3-5 years : 3356
+            3. 9-11 years : 2408
+            4. 0-2 years : 1215
+            
++ IMPORTANT INSIGHT : It can be observed that within each time interval, there is a very small number of respondents who have answered for a higher interval of 'Professional Coding Years' even when they belong to the lower interval of 'Coding Years'. These are the outliers in the data.
+
+## 5. What are the Demographics?
+
+
+### 5.1 Gender Distribution
+
+```{r}
+
+by_Gender <-   survey_results_public %>% 
+                mutate(Gender = strsplit(as.character(Gender), ";"))  %>%
+                unnest(Gender) %>%
+                filter(!is.na(Gender)) %>%
+                group_by(Gender) %>%
+                summarise(n = n()) %>%
+                mutate(percentage = round((n / sum(n))*100))
+
+highchart() %>% 
+ hc_chart(type = "pie") %>% 
+ hc_title(text = "Gender Distribution") %>%
+ hc_add_series_labels_values(labels = by_Gender$Gender, values = by_Gender$percentage) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This graph illustrates the Gender Distribution of Respondents.
+    1. Male : 92%
+    2. Female : 7%
+    3. Non Binary : 1%
+    4. Transgender : 1%
++ It can be inferred that the major developers are Male.
+
+### 5.2 Years of Experience by Gender
+
+```{r}
+
+by_yearOfExp_gender <- survey_results_public %>% select(YearsCoding, Gender) %>%
+                              filter(!is.na(YearsCoding)) %>%
+                              mutate(YearsCodingNum = parse_number(YearsCoding),
+                                     Gender = str_split(Gender, pattern = ";")) %>%
+                              unnest(Gender) %>%
+                              mutate(Gender = case_when(str_detect(Gender, "Non-binary") ~ "Non-binary",
+                                                        TRUE ~ Gender)) %>%
+                              group_by(YearsCodingNum, Gender) %>%
+                              summarise(n = n()) %>% 
+                              filter(Gender %in% c("Male", "Female", "Non-binary"))
+
+hchart(by_yearOfExp_gender, "line", hcaes(x = YearsCodingNum, y = n, group = Gender))  %>%
+hc_title(text = 'Gender Vs Years of Experience') %>%
+hc_xAxis(title = list(text = "Years of Experience")) %>% 
+hc_yAxis(title = list(text = "No Of Male/Female")) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This graph illustrates the number of years of experience vs the number of respondents belonging to a gender.
++ Years of Experience with highest number of respondents : 3 Years
+    1. Male 13101
+    2. Female 1349
+    3. Non-binary 136
++ It can also be inferred that the number of respondents with higher experience generally declines after 3 years among all the genders except for repondents with more than 30 years of experience.
+
+### 5.3 Gender % by Years of Experience
+
+```{r}
+
+by_yearOfExp_gender$Percent <- (by_yearOfExp_gender$n/sum(by_yearOfExp_gender$n)*100)
+
+aqw <- dcast(by_yearOfExp_gender, YearsCodingNum ~ Gender)
+aqw$sum <- aqw$Female + aqw$Male + aqw$`Non-binary`
+
+highchart() %>% 
+  hc_title(text = 'Gender % Vs Years of Experience') %>%
+  hc_chart(type = "column") %>% 
+  hc_xAxis(categories = aqw$YearsCodingNum,title = list(text = "Years of Experience")) %>% 
+  hc_add_series(data = aqw$sum) %>%
+  hc_add_series(name = "Male",type = "line", data = aqw$Male) %>%
+  hc_add_series(name = "Female",type = "line", data = aqw$Female) %>%
+  hc_add_series(name = "Non-binary",type = "line", data = aqw$`Non-binary`) %>%
+  hc_yAxis(title = list(text = "% Of Male/Female/Non-binary"))  %>% hc_add_theme(hc_theme_google())
+
+
+```
+
+#### **Insight**
+
++ The line graph in the given graph is same as above but the bar graph is cumulative % of all the repondents irrespective of the gender.
++ Years of Eperience with highest number of respondents : 
+    + Interval : 3 Years
+    + % of Respondents : 22.52%
++ It can be inferred that overall as well, the number of respondents with higher experience generally declines after 3 years among all the respondents except for repondents with more than 30 years of experience.
+
+## 6. How is their connection with other Developers?
+
+### 6.1 Kinship Vs Competition Vs Self-Evaluation
+
+```{r}
+
+x <-data.frame(table(survey_results_public$AgreeDisagree1))
+y <- data.frame(table(survey_results_public$AgreeDisagree2))
+z <-data.frame(table(survey_results_public$AgreeDisagree3))
+
+highchart() %>% 
+  hc_title(text = 'Kinship vs Competition vs Self-Evaluation') %>%
+  hc_chart(type = "column") %>% 
+  hc_xAxis(categories = x$Var1,title = list(text = "Agreement Level Scale")) %>% 
+  hc_add_series(name = "I feel a sense of kinship or connection to other developers",type = "line", data = x$Freq) %>%
+  hc_add_series(name = "I think of myself as competing with my peers",type = "line", data = y$Freq) %>%
+  hc_add_series(name = "I'm not as good at programming as most of my peers",type = "line", data = z$Freq) %>%
+  hc_yAxis(title = list(text = "Total"))  %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This graph gives number of respondents who answered the three questions - 'Sense of kinship', 'Competing with peers' and 'Not a good programmer' according to their responses.
++ Highest number of responses for each question :
+    1. 'Kinship' - 36777 Agree
+    2. 'Competition' - 18673 Agree
+    3. 'Self-Evaluation' - 23341 Disagree
++ Lowest number of reponses for each question : 
+    1. 'Kinship' - 1491 Strongly Disagree
+    2. 'Competition' - 5329 Strongly Agree
+    3. 'Self-Evaluation' - 2652 Strongly Agree
+
+### 6.2 Kinship, Competition & Self-Evaluation by Years of Experience
+
+```{r}
+
+by_agreeDisagree1_yearOfExp <- survey_results_public %>%
+                       filter(!is.na(AgreeDisagree1)) %>%
+                       mutate(YearsCodingNum = parse_number(YearsCoding)) %>%
+                       group_by(AgreeDisagree1,YearsCodingNum) %>%
+                       summarise(n = n()) %>% 
+                       select(AgreeDisagree1, YearsCodingNum, n)
+
+by_agreeDisagree1_yearOfExp$Percent <- (by_agreeDisagree1_yearOfExp$n/sum(by_agreeDisagree1_yearOfExp$n)*100)
+
+p_by_agreeDisagree1_yearOfExp <- hchart(by_agreeDisagree1_yearOfExp, "line", hcaes(x = YearsCodingNum, y = Percent, group = AgreeDisagree1))  %>%
+                                    hc_title(text = 'Kinship by Years of Experience') %>%
+                                    hc_xAxis(title = list(text = "Years of Experience")) %>% 
+                                    hc_yAxis(title = list(text = "Percentage of Agreement Level"))  %>% hc_add_theme(hc_theme_google())
+
+by_agreeDisagree2_yearOfExp <- survey_results_public %>%
+                       filter(!is.na(AgreeDisagree2)) %>%
+                       mutate(YearsCodingNum = parse_number(YearsCoding)) %>%
+                       group_by(AgreeDisagree2,YearsCodingNum) %>%
+                       summarise(n = n()) %>% 
+                       select(AgreeDisagree2, YearsCodingNum, n)
+
+by_agreeDisagree2_yearOfExp$Percent <- (by_agreeDisagree2_yearOfExp$n/sum(by_agreeDisagree2_yearOfExp$n)*100)
+
+p_by_agreeDisagree2_yearOfExp <- hchart(by_agreeDisagree2_yearOfExp, "line", hcaes(x = YearsCodingNum, y = Percent, group = AgreeDisagree2))  %>%
+                                    hc_title(text = 'Competition by Years of Experience') %>%
+                                    hc_xAxis(title = list(text = "Years of Experience")) %>% 
+                                    hc_yAxis(title = list(text = "Percentage of Agreement Level"))  %>% hc_add_theme(hc_theme_google())
+
+
+by_agreeDisagree3_yearOfExp <- survey_results_public %>%
+                       filter(!is.na(AgreeDisagree3)) %>%
+                       mutate(YearsCodingNum = parse_number(YearsCoding)) %>%
+                       group_by(AgreeDisagree3,YearsCodingNum) %>%
+                       summarise(n = n()) %>% 
+                       select(AgreeDisagree3, YearsCodingNum, n)
+
+by_agreeDisagree3_yearOfExp$Percent <- (by_agreeDisagree3_yearOfExp$n/sum(by_agreeDisagree3_yearOfExp$n)*100)
+
+p_by_agreeDisagree3_yearOfExp <- hchart(by_agreeDisagree3_yearOfExp, "line", hcaes(x = YearsCodingNum, y = Percent, group = AgreeDisagree3))  %>%
+                                    hc_title(text = 'Self-Evaluation by Years of Experience') %>%
+                                    hc_xAxis(title = list(text = "Years of Experience")) %>% 
+                                    hc_yAxis(title = list(text = "Percentage of Agreement Level"))  %>% hc_add_theme(hc_theme_google())
+                                    
+lst <- list(
+  p_by_agreeDisagree1_yearOfExp,
+  p_by_agreeDisagree2_yearOfExp,
+  p_by_agreeDisagree3_yearOfExp
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ This graph gives the number of repondents who answered the three questions in the above section on the basis of their Years of Experience.
++ It can be observed that the highest number of respondents for each question are having 3 years of experience.
++ 'Kinship' -  has clear 'Agree' responses from all the categories of Years of Experience.
++ 'Competition' - has high 'Agree' reponses till 9 Years of Experience. After that, it shows higher number of 'Disagree' responses.
++ 'Self-Evaluation' - has high 'Disagree' reponses till 27 Years of Experience. After that, it shows higher number of 'Strongly Disagree' response.
+
+
+
+<hr>
+# B. Technology Analysis
+<hr>
+This section deals with the analysis of the primary purpose of Stack Overflow - the technology and discussions. During the survey, the respondents were asked various questions regarding the technologies that they work on. 
+This section delivers all the related insights gathered during the EDA which includes Programming Languages, Databases, Software Dev Platforms, Frameworks and IDEs. 
+
+## 1. What are the Most Popular Programming Languages?
+
+### 1.1 Most & Least Popular Programming Languages
+
+```{r}
+
+by_LanguageWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,LanguageWorkedWith) %>% 
+                        mutate(LanguageWorkedWith = strsplit(as.character(LanguageWorkedWith), ";")) %>% 
+                        unnest(LanguageWorkedWith) %>%
+                        filter(!is.na(LanguageWorkedWith)) %>%
+                        group_by(LanguageWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(LanguageWorkedWith = reorder(LanguageWorkedWith,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+p_by_LanguageWorkedWith <- highchart() %>%
+                              hc_xAxis(categories = by_LanguageWorkedWith$LanguageWorkedWith) %>% 
+                              hc_add_series(name = "Percent %", data = by_LanguageWorkedWith$Percent, colorByPoint =  1) %>% 
+                              hc_title(text = "Most Popular Programming Language")  %>%
+                              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1))  %>% hc_add_theme(hc_theme_google())
+
+by_LanguageWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,LanguageWorkedWith) %>% 
+                        mutate(LanguageWorkedWith = strsplit(as.character(LanguageWorkedWith), ";")) %>% 
+                        unnest(LanguageWorkedWith) %>%
+                        filter(!is.na(LanguageWorkedWith)) %>%
+                        group_by(LanguageWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(LanguageWorkedWith = reorder(LanguageWorkedWith,Total)) %>%
+                        mutate(Percent=(Total/nrow(survey_results_public)*100)) %>%
+                        tail(10)
+
+p2_by_LanguageWorkedWith <- highchart() %>%
+                              hc_xAxis(categories = by_LanguageWorkedWith$LanguageWorkedWith) %>% 
+                              hc_add_series(name = "Percent %", data = by_LanguageWorkedWith$Percent, colorByPoint =  1) %>% 
+                              hc_title(text = "Less Popular Programming Language")  %>%
+                              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1))  %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_LanguageWorkedWith,
+  p2_by_LanguageWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ Top 5 Most popular programming languages are:
+    1. JavaScript 55%
+    2. HTML 54%
+    3. CSS 52%
+    4. SQL 45%
+    5. Java 36%
++ Top 5 Least popular programming languages are:
+    1. Hack 0.25%
+    2. Julia 0.43%
+    3. Ocaml 0.47%
+    4. Cobol 0.59%
+    5. Erlang 0.89%
+
+
+
+### 1.2 Top Programming Languages Desired for Next Year
+
+```{r}
+
+by_LanguageDesireNextYear <-   survey_results_public %>% 
+                        select(Respondent,LanguageDesireNextYear) %>% 
+                        mutate(LanguageDesireNextYear = strsplit(as.character(LanguageDesireNextYear), ";")) %>% 
+                        unnest(LanguageDesireNextYear) %>%
+                        filter(!is.na(LanguageDesireNextYear)) %>%
+                        group_by(LanguageDesireNextYear) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(LanguageDesireNextYear = reorder(LanguageDesireNextYear,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_LanguageDesireNextYear$LanguageDesireNextYear) %>% 
+  hc_add_series(name = "Percent %", data = by_LanguageDesireNextYear$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Most Popular Language Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the programming languages that people wish to learn for next year.
++ Top 5 popular languages are:
+    1. JavaScript 39%
+    2. Python 33%
+    3. HTML 32%
+    4. CSS 31%
+    5. SQL 28%
+
+### 1.3 Same Programming Languages Continued for Next Year
+
+
+```{r}
+
+LanguageWorkedWith_LanguageDesireNextYear_df <- survey_results_public %>% select(Respondent,LanguageWorkedWith,LanguageDesireNextYear) %>% 
+                                                 mutate(LanguageWorkedWith = strsplit(as.character(LanguageWorkedWith), ";")) %>% 
+                                                 unnest(LanguageWorkedWith)  %>%
+                                                 filter(!is.na(LanguageWorkedWith)) %>%
+                                                 mutate(LanguageDesireNextYear = strsplit(as.character(LanguageDesireNextYear), ";")) %>% 
+                                                 unnest(LanguageDesireNextYear) %>%
+                                                 filter(!is.na(LanguageDesireNextYear))
+
+df2_edges <- LanguageWorkedWith_LanguageDesireNextYear_df %>%
+            group_by(LanguageWorkedWith,LanguageDesireNextYear) %>%
+            summarise(n=n()) %>% arrange(desc(n))
+df2_edges <- as.data.frame(df2_edges)
+names(df2_edges) <- c("from","to","weight")
+
+x <- df2_edges %>% filter_(~from==to) %>% head(10)
+x$percent <- round(x$weight/nrow(survey_results_public)*100)
+p_LanguageWorkedWith_LanguageDesireNextYear_df <- highchart() %>%
+  hc_xAxis(categories = x$from) %>% 
+  hc_add_series(name = "Percent %", data = x$percent, colorByPoint =  1) %>% 
+  hc_title(text = "Same Programming Language Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_LanguageWorkedWith_LanguageDesireNextYear_df,
+  p_by_LanguageWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the percentage of people who want to learn the same language as current one for next year.
+    1. JavaScript 34%
+    2. HTML 30%
+    3. CSS 28%
+    4. SQL 26%
+    5. Python 21%
+
+
+## 2. What are the Most Popular Databases?
+
+### 2.1 Most & Least Popular Databases
+
+```{r}
+
+by_DatabaseWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,DatabaseWorkedWith) %>% 
+                        mutate(DatabaseWorkedWith = strsplit(as.character(DatabaseWorkedWith), ";")) %>% 
+                        unnest(DatabaseWorkedWith) %>%
+                        filter(!is.na(DatabaseWorkedWith)) %>%
+                        group_by(DatabaseWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(DatabaseWorkedWith = reorder(DatabaseWorkedWith,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+p_by_DatabaseWorkedWith <- highchart() %>%
+                          hc_xAxis(categories = by_DatabaseWorkedWith$DatabaseWorkedWith) %>% 
+                          hc_add_series(name = "Percent %", data = by_DatabaseWorkedWith$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Most Popular Database")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+by_DatabaseWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,DatabaseWorkedWith) %>% 
+                        mutate(DatabaseWorkedWith = strsplit(as.character(DatabaseWorkedWith), ";")) %>% 
+                        unnest(DatabaseWorkedWith) %>%
+                        filter(!is.na(DatabaseWorkedWith)) %>%
+                        group_by(DatabaseWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(DatabaseWorkedWith = reorder(DatabaseWorkedWith,Total)) %>%
+                        mutate(Percent=(Total/nrow(survey_results_public)*100)) %>%
+                        tail(10)
+
+p2_by_DatabaseWorkedWith <- highchart() %>%
+                              hc_xAxis(categories = by_DatabaseWorkedWith$DatabaseWorkedWith) %>% 
+                              hc_add_series(name = "Percent %", data = by_DatabaseWorkedWith$Percent, colorByPoint =  1) %>% 
+                              hc_title(text = "Less Popular Database")  %>%
+                              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_DatabaseWorkedWith,
+  p2_by_DatabaseWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ The first bar graph illustrates the most popular databases that are discussed on Stack Overflow.
+    1. MySQL 39%
+    2. SQL Server 28%
+    3. PostgreSQL 22%
+    4. MongoDB 17%
+    5. SQLite 13%
++ The second bar graph illustrates the least popular databases that are discussed on Stack Overflow.
+    1. Apache HBase 1.11%
+    2. Google BigQuery 1.40%
+    3. Apache Hive 1.45%
+    4. Amazon Redshift 1.48%
+    5. Neo4j 1.59%
+
+
+### 2.2 Top Databases Desired for Next Year
+
+```{r}
+
+by_DatabaseDesireNextYear <-   survey_results_public %>% 
+                        select(Respondent,DatabaseDesireNextYear) %>% 
+                        mutate(DatabaseDesireNextYear = strsplit(as.character(DatabaseDesireNextYear), ";")) %>% 
+                        unnest(DatabaseDesireNextYear) %>%
+                        filter(!is.na(DatabaseDesireNextYear)) %>%
+                        group_by(DatabaseDesireNextYear) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(DatabaseDesireNextYear = reorder(DatabaseDesireNextYear,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_DatabaseDesireNextYear$DatabaseDesireNextYear) %>% 
+  hc_add_series(name = "Percent %", data = by_DatabaseDesireNextYear$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Most Popular Database Next Year Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the most popular database that people wish to learn for next year.
+    1. MySQL 22
+    2. MongoDB 21
+    3. PostgreSQL 20
+    4. SQL Server 16
+    5. Redis 14
+
+### 2.3 Same Databases Continued for Next Year
+
+
+```{r}
+
+DatabaseWorkedWith_DatabaseDesireNextYear_df <- survey_results_public %>% select(Respondent,DatabaseWorkedWith,DatabaseDesireNextYear) %>% 
+                                                 mutate(DatabaseWorkedWith = strsplit(as.character(DatabaseWorkedWith), ";")) %>% 
+                                                 unnest(DatabaseWorkedWith)  %>%
+                                                 filter(!is.na(DatabaseWorkedWith)) %>%
+                                                 mutate(DatabaseDesireNextYear = strsplit(as.character(DatabaseDesireNextYear), ";")) %>% 
+                                                 unnest(DatabaseDesireNextYear) %>%
+                                                 filter(!is.na(DatabaseDesireNextYear))
+
+df2_edges <- DatabaseWorkedWith_DatabaseDesireNextYear_df %>%
+            group_by(DatabaseWorkedWith,DatabaseDesireNextYear) %>%
+            summarise(n=n()) %>% arrange(desc(n))
+df2_edges <- as.data.frame(df2_edges)
+names(df2_edges) <- c("from","to","weight")
+
+x <- df2_edges %>% filter_(~from==to) %>% head(10)
+x$percent <- round(x$weight/nrow(survey_results_public)*100)
+p_DatabaseWorkedWith_DatabaseDesireNextYear_df <- highchart() %>%
+                      hc_xAxis(categories = x$from) %>% 
+                      hc_add_series(name = "Percent %", data = x$percent, colorByPoint =  1) %>% 
+                      hc_title(text = "Same Database Desire for Next Year")  %>%
+                      hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_DatabaseWorkedWith_DatabaseDesireNextYear_df,
+  p_by_DatabaseWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the percentage of people who want to learn the same database as current one for next year.
+    1. MySQL 19%
+    2. SQL Server 14%
+    3. PostgreSQL 14%
+    4. MongoDB 10%
+    5. Redis 8%
+
+
+## 3. What are the Most Popular Platforms?
+
+### 3.1 Most & Least Popular Platforms
+
+```{r}
+
+by_PlatformWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,PlatformWorkedWith) %>% 
+                        mutate(PlatformWorkedWith = strsplit(as.character(PlatformWorkedWith), ";")) %>% 
+                        unnest(PlatformWorkedWith) %>%
+                        filter(!is.na(PlatformWorkedWith)) %>%
+                        group_by(PlatformWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(PlatformWorkedWith = reorder(PlatformWorkedWith,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+p_by_PlatformWorkedWith <- highchart() %>%
+                  hc_xAxis(categories = by_PlatformWorkedWith$PlatformWorkedWith) %>% 
+                  hc_add_series(name = "Percent %", data = by_PlatformWorkedWith$Percent, colorByPoint =  1) %>% 
+                  hc_title(text = "Most Popular Platform")  %>%
+                  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1))  %>% hc_add_theme(hc_theme_google())
+
+by_PlatformWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,PlatformWorkedWith) %>% 
+                        mutate(PlatformWorkedWith = strsplit(as.character(PlatformWorkedWith), ";")) %>% 
+                        unnest(PlatformWorkedWith) %>%
+                        filter(!is.na(PlatformWorkedWith)) %>%
+                        group_by(PlatformWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(PlatformWorkedWith = reorder(PlatformWorkedWith,Total)) %>%
+                        mutate(Percent=(Total/nrow(survey_results_public)*100)) %>%
+                        tail(10)
+
+p2_by_PlatformWorkedWith<- highchart() %>%
+                  hc_xAxis(categories = by_PlatformWorkedWith$PlatformWorkedWith) %>% 
+                  hc_add_series(name = "Percent %", data = by_PlatformWorkedWith$Percent, colorByPoint =  1) %>% 
+                  hc_title(text = "Least Popular Platform")  %>%
+                  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_PlatformWorkedWith,
+  p2_by_PlatformWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ The first bar graph illustrates the most popular platforms that are discussed on Stack Overflow.
+    1. Linux 32%
+    2. Windows Desktop or Server 24%
+    3. Android 19%
+    4. AWS 16%
+    5. Mac OS 12%
++ The second bar graph illustrates the least popular platforms that are discussed on Stack Overflow.
+    1. Predix 0.11%
+    2. Mainframe 0.53%
+    3. Gaming Console 0.85%
+    4. Google Home 0.90%
+    5. IBM Cloud or Google Watson 0.96%
+
+### 3.2 Top Platforms Desired for Next Year
+
+```{r}
+
+by_PlatformDesireNextYear <-   survey_results_public %>% 
+                        select(Respondent,PlatformDesireNextYear) %>% 
+                        mutate(PlatformDesireNextYear = strsplit(as.character(PlatformDesireNextYear), ";")) %>% 
+                        unnest(PlatformDesireNextYear) %>%
+                        filter(!is.na(PlatformDesireNextYear)) %>%
+                        group_by(PlatformDesireNextYear) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(PlatformDesireNextYear = reorder(PlatformDesireNextYear,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_PlatformDesireNextYear$PlatformDesireNextYear) %>% 
+  hc_add_series(name = "Percent %", data = by_PlatformDesireNextYear$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Most Popular Platform Next Year Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the most popular platform that people wish to learn for next year.
+    1. Linux 30%
+    2. Android 22%
+    3. AWS 19%
+    4. Raspberry Pi 16%
+    5. Windows Desktop or Server 16%
+
+### 3.3 Same Platforms Continued for Next Year
+
+
+```{r}
+
+PlatformWorkedWith_PlatformDesireNextYear_df <- survey_results_public %>% select(Respondent,PlatformWorkedWith,PlatformDesireNextYear) %>% 
+                                                 mutate(PlatformWorkedWith = strsplit(as.character(PlatformWorkedWith), ";")) %>% 
+                                                 unnest(PlatformWorkedWith)  %>%
+                                                 filter(!is.na(PlatformWorkedWith)) %>%
+                                                 mutate(PlatformDesireNextYear = strsplit(as.character(PlatformDesireNextYear), ";")) %>% 
+                                                 unnest(PlatformDesireNextYear) %>%
+                                                 filter(!is.na(PlatformDesireNextYear))
+
+df2_edges <- PlatformWorkedWith_PlatformDesireNextYear_df %>%
+            group_by(PlatformWorkedWith,PlatformDesireNextYear) %>%
+            summarise(n=n()) %>% arrange(desc(n))
+df2_edges <- as.data.frame(df2_edges)
+names(df2_edges) <- c("from","to","weight")
+
+x <- df2_edges %>% filter_(~from==to) %>% head(10)
+x$percent <- round(x$weight/nrow(survey_results_public)*100)
+p_PlatformWorkedWith_PlatformDesireNextYear_df<-highchart() %>%
+                  hc_xAxis(categories = x$from) %>% 
+                  hc_add_series(name = "Percent %", data = x$percent, colorByPoint =  1) %>% 
+                  hc_title(text = "Same Platform Desire for Next Year")  %>%
+                  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+                  
   
-  ggplot(aes(x = Hobby,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = Hobby, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Hobby', 
-       y = 'Percentage', 
-       title = 'Hobby and Percentage') +
-  coord_flip() +
-  theme_bw()
+lst <- list(
+  p_PlatformWorkedWith_PlatformDesireNextYear_df,
+  p_by_PlatformWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
 
 ```
 
-More than **80%** of the respondents consider Coding as a Hobby.                 
+#### **Insight**
+
++ This bar graph illustrates the percentage of people who want to learn the same platform as current one for next year.
+    1. Linux 25%
+    2. Windows Desktop or Server 14%
+    3. Android 12%
+    4. AWS 11%
+    5. Mac OS 8% 
+
+## 4. What are the Most Popular Frameworks?
+
+### 4.1 Most & Least Popular Frameworks
+
+```{r}
+
+by_FrameworkWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,FrameworkWorkedWith) %>% 
+                        mutate(FrameworkWorkedWith = strsplit(as.character(FrameworkWorkedWith), ";")) %>% 
+                        unnest(FrameworkWorkedWith) %>%
+                        filter(!is.na(FrameworkWorkedWith)) %>%
+                        group_by(FrameworkWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(FrameworkWorkedWith = reorder(FrameworkWorkedWith,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+p_by_FrameworkWorkedWith <- highchart() %>%
+                              hc_xAxis(categories = by_FrameworkWorkedWith$FrameworkWorkedWith) %>% 
+                              hc_add_series(name = "Percent %", data = by_FrameworkWorkedWith$Percent, colorByPoint =  1) %>% 
+                              hc_title(text = "Most Popular Framework")  %>%
+                              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+by_FrameworkWorkedWith <-   survey_results_public %>% 
+                        select(Respondent,FrameworkWorkedWith) %>% 
+                        mutate(FrameworkWorkedWith = strsplit(as.character(FrameworkWorkedWith), ";")) %>% 
+                        unnest(FrameworkWorkedWith) %>%
+                        filter(!is.na(FrameworkWorkedWith)) %>%
+                        group_by(FrameworkWorkedWith) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(FrameworkWorkedWith = reorder(FrameworkWorkedWith,Total)) %>%
+                        mutate(Percent=(Total/nrow(survey_results_public)*100)) %>%
+                        tail(10)
+
+p2_by_FrameworkWorkedWith <- highchart() %>%
+                          hc_xAxis(categories = by_FrameworkWorkedWith$FrameworkWorkedWith) %>% 
+                          hc_add_series(name = "Percent %", data = by_FrameworkWorkedWith$Percent, colorByPoint =  1) %>% 
+                          hc_title(text = "Least Popular Framework")  %>%
+                          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+lst <- list(
+  p_by_FrameworkWorkedWith,
+  p2_by_FrameworkWorkedWith
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ The first bar graph illustrates the most popular frameworks that are discussed on Stack Overflow.
+    1. Node.js 26%
+    2. Angular 19%
+    3. React 15%
+    4. .NET Core 14%
+    5. Spring 9%
++ The second bar graph illustrates the least popular frameworks that are discussed on Stack Overflow.
+    1. Torch/Py Torch 0.87%
+    2. Hadoop 2.47%
+    3. Spark 2.50%
+    4. Xamarin 3.83%
+    5. Tensor Flow 4.07%
 
 
-#Countries with Hobby as Yes
+### 4.2 Top Frameworks Desired for Next Year
 
-```{r,message=FALSE,warning=FALSE}
+```{r}
 
-survey_results %>%
-  filter(Hobby == "Yes") %>%
-  group_by(Country) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(Country = reorder(Country,Count)) %>%
-  head(10) %>%
+by_FrameworkDesireNextYear <-   survey_results_public %>% 
+                        select(Respondent,FrameworkDesireNextYear) %>% 
+                        mutate(FrameworkDesireNextYear = strsplit(as.character(FrameworkDesireNextYear), ";")) %>% 
+                        unnest(FrameworkDesireNextYear) %>%
+                        filter(!is.na(FrameworkDesireNextYear)) %>%
+                        group_by(FrameworkDesireNextYear) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(FrameworkDesireNextYear = reorder(FrameworkDesireNextYear,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_FrameworkDesireNextYear$FrameworkDesireNextYear) %>% 
+  hc_add_series(name = "Percent %", data = by_FrameworkDesireNextYear$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Most Popular Framework Next Year Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1))  %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the most popular frameworks that people wish to learn for next year.
+    1. Node.js 28%
+    2. React 24%
+    3. Angular 19%
+    4. .NET Core 15%
+    5. TensorFlow 15%
+
+### 4.3 Same Frameworks Continued for Next Year
+
+
+```{r}
+
+FrameworkWorkedWith_FrameworkDesireNextYear_df <- survey_results_public %>% select(Respondent,FrameworkWorkedWith,FrameworkDesireNextYear) %>% 
+                                                 mutate(FrameworkWorkedWith = strsplit(as.character(FrameworkWorkedWith), ";")) %>% 
+                                                 unnest(FrameworkWorkedWith)  %>%
+                                                 filter(!is.na(FrameworkWorkedWith)) %>%
+                                                 mutate(FrameworkDesireNextYear = strsplit(as.character(FrameworkDesireNextYear), ";")) %>% 
+                                                 unnest(FrameworkDesireNextYear) %>%
+                                                 filter(!is.na(FrameworkDesireNextYear))
+
+df2_edges <- FrameworkWorkedWith_FrameworkDesireNextYear_df %>%
+            group_by(FrameworkWorkedWith,FrameworkDesireNextYear) %>%
+            summarise(n=n()) %>% arrange(desc(n))
+df2_edges <- as.data.frame(df2_edges)
+names(df2_edges) <- c("from","to","weight")
+
+x <- df2_edges %>% filter_(~from==to) %>% head(10)
+x$percent <- round(x$weight/nrow(survey_results_public)*100)
+p_FrameworkWorkedWith_FrameworkDesireNextYear_df <- highchart() %>%
+  hc_xAxis(categories = x$from) %>% 
+  hc_add_series(name = "Percent %", data = x$percent, colorByPoint =  1) %>% 
+  hc_title(text = "Same Framework Desire for Next Year")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
   
-  ggplot(aes(x = Country,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = Country,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Country', 
-       y = 'Percentage', 
-       title = 'Country with Hobby as Coding and Percentage') +
-  coord_flip() +
-  theme_bw()
+lst <- list(
+  p_FrameworkWorkedWith_FrameworkDesireNextYear_df,
+  p_by_FrameworkWorkedWith
+)
 
+hw_grid(lst, rowheight = 400)
 
 ```
 
-United States, India, Germany, United Kingdom and Canada are the countries with people who consider coding as an Hobby.          
+#### **Insight**
+
++ This bar graph illustrates the percentage of people who want to learn the same framework as current one for next year.
+    1. Node.js 17%
+    2. Angular 11%
+    3. React 10%
+    4. .NET Core 9%
+    5. Spring 6%
+
+## 5. What are the Most Popular Development Environments?
+
+### 5.1 Most & Least Popular IDEs
+
+```{r}
+
+by_IDE <-   survey_results_public %>% 
+                        select(Respondent,IDE) %>% 
+                        mutate(IDE = strsplit(as.character(IDE), ";")) %>% 
+                        unnest(IDE) %>%
+                        filter(!is.na(IDE)) %>%
+                        group_by(IDE) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(IDE = reorder(IDE,Total)) %>%
+                        mutate(Percent=round(Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+p_by_IDE <- highchart() %>%
+              hc_xAxis(categories = by_IDE$IDE) %>% 
+              hc_add_series(name = "Percent %", data = by_IDE$Percent, colorByPoint =  1) %>% 
+              hc_title(text = "Most Popular IDE")  %>%
+              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+by_IDE <-   survey_results_public %>% 
+                        select(Respondent,IDE) %>% 
+                        mutate(IDE = strsplit(as.character(IDE), ";")) %>% 
+                        unnest(IDE) %>%
+                        filter(!is.na(IDE)) %>%
+                        group_by(IDE) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(IDE = reorder(IDE,Total)) %>%
+                        mutate(Percent=(Total/nrow(survey_results_public)*100)) %>%
+                        tail(10)
+
+p2_by_IDE <- highchart() %>%
+              hc_xAxis(categories = by_IDE$IDE) %>% 
+              hc_add_series(name = "Percent %", data = by_IDE$Percent, colorByPoint =  1) %>% 
+              hc_title(text = "Least Popular IDE")  %>%
+              hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+  
+lst <- list(
+  p_by_IDE,
+  p2_by_IDE
+)
+
+hw_grid(lst, rowheight = 400)
+
+```
+
+#### **Insight**
+
++ The first bar graph illustrates the most popular IDE that are discussed on Stack Overflow.
+    1. Visual Studio Code 27%
+    2. Visual Studio 26%
+    3. Notepad ++ 26%
+    4. Sublime Text 22%
+    5. Vim 20%
++ The second bar graph illustrates the least popular IDE that are discussed on Stack Overflow.
+    1. Light Table 0.14%
+    2. Zend 0.30%
+    3. Komodo 0.43%
+    4. Coda 0.49%
+    5. TextMate 0.81%
 
 
-#Developer Type Analysis
+### 5.2 Network Analysis : IDEs
 
-```{r,message=FALSE,warning=FALSE}
+```{r}
 
-DevType <- survey_results %>%
-  mutate(DevType = str_split(DevType, pattern = ";")) %>%
-  unnest(DevType) %>%
-  select(DevType)
+df <- survey_results_public %>% select(Respondent,IDE)
+df2 <- df %>% 
+         mutate(IDE = strsplit(as.character(IDE), ";")) %>% 
+         unnest(IDE)
+         
+df2_edges <- df2 %>% group_by(Respondent) %>%
+             filter(n()>=2) %>%
+             do(data.frame(t(combn((.)[["IDE"]], 2)), stringsAsFactors=FALSE)) %>% ungroup() %>%
+             rename(source = X1, target = X2) %>%
+             select(-Respondent)
 
-TotalNoofRows = nrow(DevType)
+df2_edges <- df2_edges %>% group_by(source,target) %>% summarise(weight=n())
 
-DevType %>%
+
+names(df2_edges) <- c("from","to","weight")
+df2_edges$weight <- df2_edges$weight/800
+
+df2_edges$width <- 1+df2_edges$weight # line width
+#df2_edges$color <- "gray"    # line color  
+#df2_edges$arrows <- "middle" # arrows: 'from', 'to', or 'middle'
+df2_edges$smooth <- FALSE    # should the edges be curved?
+df2_edges$shadow <- FALSE    # edge shadow
+
+
+df2_nodes <- df2 %>% filter(!is.na(IDE)) %>% group_by(IDE) %>% summarise(n = n()/500) %>% arrange(desc(n))
+names(df2_nodes) <- c("id","size")
+
+n <- nrow(df2_nodes)
+palette <- distinctColorPalette(n)
+
+df2_nodes$shape <- "dot"  
+df2_nodes$shadow <- TRUE # Nodes will drop shadow
+df2_nodes$title <- df2_nodes$id # Text on click
+df2_nodes$label <- df2_nodes$id # Node label
+df2_nodes$size <- df2_nodes$size # Node size
+df2_nodes$borderWidth <- 2 # Node border width
+
+df2_nodes$color.background <- palette[]
+df2_nodes$color.border <- "black"
+df2_nodes$color.highlight.background <- "orange"
+df2_nodes$color.highlight.border <- "darkred"
+
+df2_nodes$font.size <- 40
+
+visNetwork(df2_nodes, df2_edges, height = "500px", width = "100%") %>% visIgraphLayout(layout = "layout_with_lgl") %>% 
+  visEdges(shadow = TRUE,
+           color = list(color = "gray", highlight = "orange"))
+
+```
+
+#### **Insight**
+
++ This is a Network Graph for the different IDEs.
++ Each node denotes the different IDEs and the size of node denotes the number of respondents that use the particular IDE.
++ Each connecting edge between any two nodes denotes that the respondents chose both the IDEs. And, the width of the edge denotes the number of users that chose both the IDEs.
++ It can be observed that the top 3 highest correlation is between:
+    1. Notepad++ --- Visual Studio
+    2. Visual Studio --- Visual Studio Code
+    3. Visual Studio Code --- Notepad++
+    4. Eclipse --- Notepad++
+    5. Android Studio --- Notepad++
+
+### 5.3 Most Popular Operating Systems
+
+```{r}
+
+by_OperatingSystem <- survey_results_public %>%
+                        filter(!is.na(OperatingSystem)) %>%
+                        group_by(OperatingSystem) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(Student = reorder(OperatingSystem,Total)) %>%
+                        mutate(Percent = (Total/nrow(survey_results_public)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_OperatingSystem$OperatingSystem) %>% 
+  hc_add_series(name = "Percent %", data = by_OperatingSystem$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Primary Operating System")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the most popular Operating System used by the respondents.
+    1. Windows 38.46%
+    2. MacOS 20.56%
+    3. Linux-based 17.88%
+    4. BSD/Unix 0.14%
+
+### 5.4 Number of Monitors used at Workstation
+
+```{r}
+
+by_NumberMonitors <- survey_results_public %>%
+                        filter(!is.na(NumberMonitors)) %>%
+                        group_by(NumberMonitors) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(Student = reorder(NumberMonitors,Total)) %>%
+                        mutate(Percent = (Total/sum(Total)*100)) %>%
+                        head(10)
+
+highchart() %>%
+  hc_xAxis(categories = by_NumberMonitors$NumberMonitors) %>% 
+  hc_add_series(name = "Percent %", data = by_NumberMonitors$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Number of Monitors at workstation")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+
+```
+
+#### **Insight**
+
++ This bar graph illustrates the number of monitors at workstation used by the respondents.
+    1. 2 Monitors 51.13%
+    2. 1 Monitors 31.88%
+    3. 3 Monitors 14.37%
+    4. More than 4 Monitors 1.42%
+    5. 4 Monitors 1.18%
+
+## 6. What is the Salary paid for different Technologies?
+
+### 6.1 Developer Salary by Country
+
+```{r}
+
+by_country_salary <- survey_results_public %>% select(Country, Salary) %>% mutate(Salary=as.numeric(Salary))  %>% filter(!is.na(Country)) %>% filter(!is.na(Salary)) %>%group_by(Country) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE))
+
+data(worldgeojson, package = "highcharter")
+code <- countrycode(by_country_salary$Country, 'country.name', 'iso3c')
+by_country_salary$iso3 <- code
+by_country_salary$AvgSalary <- round(by_country_salary$AvgSalary)
+
+highchart() %>% 
+  hc_add_series_map(worldgeojson, by_country_salary, value = "AvgSalary", joinBy = "iso3",colorByPoint =  1) %>% 
+  hc_colorAxis(stops = color_stops()) %>% 
+  hc_legend(enabled = TRUE) %>%  
+  hc_mapNavigation(enabled = TRUE) %>%
+  hc_title(text = "Avg Salary by Country")  %>%
+  hc_tooltip(useHTML = TRUE, headerFormat = "",
+            pointFormat = "Country: {point.Country} Median Salary: ${point.AvgSalary}") %>% hc_add_theme(hc_theme_google())
+            
+
+```
+
+#### **Insight**
+
++ This graph illustrates the median salary distribution for the different countries.
++ Top 5 Highest Median Salaries:
+    1. South Korea $22000000
+    2. Iran $15000000
+    3. Vietnam $5500000
+    4. Indonesia $4500000
+    5. Colombia $1661000
+
+### 6.2 Motion Plot : Developer Type Vs Salary Vs Years of Experience
+
+```{r}
+
+motion_df <- survey_results_public %>% select(DevType,YearsCodingProf,Salary) %>%
+            mutate(YearsCodingNum = parse_number(YearsCodingProf),
+                                    DevType = str_split(DevType, pattern = ";"),
+                                    Salary = as.numeric(Salary)) %>%
+                                    unnest(DevType) %>% 
+                                    filter(!is.na(DevType)) %>% filter(!is.na(YearsCodingNum))
+
+motion_df2 <- motion_df %>% filter(!is.na(Salary)) %>%
+            select(DevType, YearsCodingNum, Salary) %>% 
+            filter(!is.na(DevType)) %>% group_by(DevType,YearsCodingNum) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE))
+
+
+#motion_df$z <- motion_df$AvgSalary
+
+data_strt2 <- motion_df2  %>% 
+  mutate(x = YearsCodingNum, y = AvgSalary, z = 100)
+
+data_strt2$color = distinctColorPalette(length(unique(motion_df2$DevType)))[as.numeric(as.factor(motion_df2$DevType))]
+
+data_seqc2 <- motion_df %>% 
+  arrange(DevType, YearsCodingNum) %>% 
+  group_by(DevType) %>% 
+  summarise(n=n()) %>%
+  right_join(motion_df2, by="DevType") %>%
   group_by(DevType) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(DevType = reorder(DevType,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = DevType,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = DevType, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'DevType', 
-       y = 'Percentage', 
-       title = 'DevType and Percentage') +
-  coord_flip() +
-  theme_bw()
+  do(sequence = list_parse(select(., x = YearsCodingNum, y = AvgSalary, z = n)))
+
+data2 <- left_join(data_strt2, data_seqc2)  
+
+highchart() %>% 
+  hc_add_series(data = data2, type = "bubble",
+                minSize = 0, maxSize = 30, dataLabels = list(enabled = TRUE, format = "{point.DevType}")) %>% 
+  hc_motion(enabled = TRUE, series = 0, labels = unique(motion_df2$YearsCodingNum),
+            loop = TRUE, 
+            updateInterval = 1000, magnet = list(step =  1)) %>% 
+  hc_plotOptions(series = list(showInLegend = FALSE)) %>% 
+  hc_xAxis(min = 0, max = 30, title = list(text = "Year Of Exp")) %>% 
+  hc_yAxis(min = 500, max = 200000, title = list(text = "Median Salary (USD)")) %>% 
+  hc_title(text = "Motion Plot of Devtype vs Salary vs Year of Exp")  %>%
+  hc_tooltip(useHTML = TRUE, headerFormat = "", pointFormat = "{point.DevType} Year Of Exp: {point.x}y Median Salary: ${point.y} No Of Response : {point.z}") %>% hc_add_theme(hc_theme_google())
 
 ```
 
-The most popular DevTypes are the Back-end , Full Stack and the Front end developers.        
+#### **Insight**
+
++ This is a motion plot of Devtype vs Salary vs Years of Experience.
++ Full Stack developers, Back End developers and Front End developers have the highest number of respondents for most Year of Experience intervals.
++ Engineering Managers have highest salary for most Years of Experience intervals, except for people with 27.5 years of experience.
+
+### 6.3 Developer Salary : Global Vs India Vs USA
+
+```{r}
 
 
-#Top Dev Types with Years of Coding
+global_salary <-  survey_results_public %>% select(DevType,Salary) %>%
+            mutate(DevType = str_split(DevType, pattern = ";"),
+                   Salary = as.numeric(Salary)) %>%
+            unnest(DevType) %>% filter(!is.na(Salary)) %>%
+            select(DevType,Salary) %>% 
+            filter(!is.na(DevType)) %>% group_by(DevType) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE)) %>% arrange(desc(AvgSalary)) %>% head(10)
+ 
+india_salary <-  survey_results_public %>% select(DevType,Salary,Country) %>%
+            mutate(DevType = str_split(DevType, pattern = ";"),
+                   Salary = as.numeric(Salary)) %>%
+            unnest(DevType) %>% filter(!is.na(Salary)) %>%
+            filter(Country %in% c("India")) %>% 
+            select(DevType,Salary) %>% 
+            filter(!is.na(DevType)) %>% group_by(DevType) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE)) %>% arrange(desc(AvgSalary)) %>% head(10)
+ 
+usa_salary <-  survey_results_public %>% select(DevType,Salary,Country) %>%
+            mutate(DevType = str_split(DevType, pattern = ";"),
+                   Salary = as.numeric(Salary)) %>%
+            unnest(DevType) %>% filter(!is.na(Salary)) %>%
+            filter(Country %in% c("United States")) %>% 
+            select(DevType,Salary) %>% 
+            filter(!is.na(DevType)) %>% group_by(DevType) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE)) %>% arrange(desc(AvgSalary)) %>% head(10)
+ 
+p1 <- highchart() %>%
+          hc_xAxis(categories = global_salary$DevType) %>% 
+          hc_add_series(name = "Median Salary $", data = global_salary$AvgSalary, colorByPoint =  1) %>% 
+          hc_title(text = "Global Salary by Developer Type")  %>%
+          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
-The bar plot lists the most popular Developer Types along with the Years of Coding           
+p2 <- highchart() %>%
+          hc_xAxis(categories = india_salary$DevType) %>% 
+          hc_add_series(name = "Median Salary $", data = india_salary$AvgSalary, colorByPoint =  1) %>% 
+          hc_title(text = "India Salary by Developer Type")  %>%
+          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
+p3 <- highchart() %>%
+          hc_xAxis(categories = usa_salary$DevType) %>% 
+          hc_add_series(name = "Median Salary $", data = usa_salary$AvgSalary, colorByPoint =  1) %>% 
+          hc_title(text = "USA Salary by Developer Type")  %>%
+          hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
+          
+lst <- list(
+  p1,
+  p2,
+  p3
+)
 
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  select(DevType,YearsCoding) %>%
-  mutate(DevType = str_split(DevType, pattern = ";")) %>%
-  unnest(DevType) %>%
-  group_by(DevType,YearsCoding) %>%
-  summarise(Count = n()) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(YearsCoding = as.character(YearsCoding),
-         DevType = as.character(DevType)) %>%
-  mutate(DevType_YearsOfCoding = paste(DevType,YearsCoding)) %>%
-  mutate(DevType_YearsOfCoding = reorder(DevType_YearsOfCoding,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = DevType_YearsOfCoding,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = DevType_YearsOfCoding, y = 1, label = paste0("( ",Count," )",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  labs(x = 'DevType_YearsOfCoding', 
-       y='Count', 
-       title = 'DevType_YearsOfCoding and Count') +
-  coord_flip() +
-  theme_bw()
-
-
-```
-
-#Education Analysis
-
-##Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-TotalNoofRows = nrow(survey_results) 
-
-plotFormalEducation <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(FormalEducation )) %>%
-    select(FormalEducation ) %>%
-    group_by(FormalEducation ) %>%
-    summarise(Count = n()/TotalNoofRows ) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(FormalEducation  = reorder(FormalEducation ,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = FormalEducation ,y = Count)) +
-    geom_bar(stat='identity',fill= fillColorLightCoral) +
-    geom_text(aes(x = FormalEducation , y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-    scale_y_continuous(labels = percent_format()) +
-    labs(x = 'FormalEducation ', 
-         y = 'Percentage', 
-         title = 'FormalEducation  and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotFormalEducation(survey_results,TotalNoofRows)
+hw_grid(lst, rowheight = 400)
+         
 
 ```
 
+#### **Insight**
 
-##UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(UndergradMajor)) %>%
-    select(UndergradMajor) %>%
-    group_by(UndergradMajor) %>%
-    summarise(Count = n()/TotalNoofRows ) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(UndergradMajor = reorder(UndergradMajor,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = UndergradMajor,y = Count)) +
-    geom_bar(stat='identity',fill= fillColor2) +
-    geom_text(aes(x = UndergradMajor,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-    scale_y_continuous(labels = percent_format()) +
-    labs(x = 'UndergradMajor', 
-         y = 'Percentage', 
-         title = 'UndergradMajor and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotUnderGradDegree(survey_results,TotalNoofRows)
-
-```
++ Engineering Managers have the highest salaries among all the cases taken in account, closely followed by DevOps specialists & C-suite executives.
++ Engineering Manager :
+    1. Global Median : $90000
+    2. India Median : $600000
+    3. USA Median : $134000
 
 
-#Developer Desires Next Year
+### 6.4 Motion Plot : Developer Salary & Experience by Language
 
-##Platform Desire Next Year
+```{r}
 
-```{r,message=FALSE,warning=FALSE}
+motion_df <- survey_results_public %>% select(LanguageWorkedWith,YearsCodingProf,Salary) %>%
+            mutate(YearsCodingNum = parse_number(YearsCodingProf),
+                                    LanguageWorkedWith = str_split(LanguageWorkedWith, pattern = ";"),
+                                    Salary = as.numeric(Salary)) %>%
+                                    unnest(LanguageWorkedWith) %>% 
+                                    filter(!is.na(LanguageWorkedWith)) %>% filter(!is.na(YearsCodingNum))
 
-TotalNoofRows = nrow(survey_results)
-
-plotPlatformDesire <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(PlatformDesireNextYear)) %>%
-    select(PlatformDesireNextYear) %>%
-    mutate(PlatformDesireNextYear = str_split(PlatformDesireNextYear, pattern = ";")) %>%
-    unnest(PlatformDesireNextYear) %>%
-    group_by(PlatformDesireNextYear) %>%
-    summarise(Count = n()) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(TotalCount =  sum(Count)) %>%
-    mutate(Count =  Count/TotalCount) %>%
-    mutate(PlatformDesireNextYear = reorder(PlatformDesireNextYear,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = PlatformDesireNextYear,y = Count)) +
-    geom_bar(stat='identity',fill= fillColor) +
-    geom_text(aes(x = PlatformDesireNextYear,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-    labs(x = 'PlatformDesireNextYear', 
-         y='Percentage', 
-         title = 'PlatformDesireNextYear and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotPlatformDesire(survey_results,TotalNoofRows)
-
-```
-
-Linux. Android and AWS are the top Platforms which respondents want to learn next year
-
-##Framework Desire Next Year
-
-```{r,message=FALSE,warning=FALSE}
-
-plotFrameworkDesire <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(FrameworkDesireNextYear)) %>%
-    select(FrameworkDesireNextYear) %>%
-    mutate(FrameworkDesireNextYear = str_split(FrameworkDesireNextYear, pattern = ";")) %>%
-    unnest(FrameworkDesireNextYear) %>%
-    group_by(FrameworkDesireNextYear) %>%
-    summarise(Count = n()/TotalNoofRows) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(TotalCount =  sum(Count)) %>%
-    mutate(Count =  Count/TotalCount) %>%
-    mutate(FrameworkDesireNextYear = reorder(FrameworkDesireNextYear,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = FrameworkDesireNextYear,y = Count)) +
-    geom_bar(stat='identity',fill= fillColorLightCoral) +
-    geom_text(aes(x = FrameworkDesireNextYear,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-    labs(x = 'FrameworkDesireNextYear', 
-         y='Percentage', 
-         title = 'FrameworkDesireNextYear and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotFrameworkDesire(survey_results,TotalNoofRows)
+motion_df2 <- motion_df %>% filter(!is.na(Salary)) %>%
+            select(LanguageWorkedWith, YearsCodingNum, Salary) %>% 
+            filter(!is.na(LanguageWorkedWith)) %>% group_by(LanguageWorkedWith,YearsCodingNum) %>% summarize(AvgSalary = median(Salary, na.rm=TRUE))
 
 
-```
+#motion_df$z <- motion_df$AvgSalary
 
-Node,React  and Angular are the top Frameworks which respondents want to learn next year
+data_strt2 <- motion_df2  %>% 
+  mutate(x = YearsCodingNum, y = AvgSalary, z = 100)
 
-##Database Desire Next Year
+data_strt2$color = distinctColorPalette(length(unique(motion_df2$LanguageWorkedWith)))[as.numeric(as.factor(motion_df2$LanguageWorkedWith))]
 
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(DatabaseDesireNextYear)) %>%
-    select(DatabaseDesireNextYear) %>%
-    mutate(DatabaseDesireNextYear = str_split(DatabaseDesireNextYear, pattern = ";")) %>%
-    unnest(DatabaseDesireNextYear) %>%
-    group_by(DatabaseDesireNextYear) %>%
-    summarise(Count = n()/TotalNoofRows) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(TotalCount =  sum(Count)) %>%
-    mutate(Count =  Count/TotalCount) %>%
-    mutate(DatabaseDesireNextYear = reorder(DatabaseDesireNextYear,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = DatabaseDesireNextYear,y = Count)) +
-    geom_bar(stat='identity',fill= fillColor) +
-  scale_y_continuous(labels = percent_format()) +
-    geom_text(aes(x = DatabaseDesireNextYear,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-    labs(x = 'DatabaseDesireNextYear', 
-         y='Percentage', 
-         title = 'DatabaseDesireNextYear and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotDatabaseDesire(survey_results,TotalNoofRows)
-
-```
-
-MySQL, MongoDB and PostgreSQL are the top databases which respondents want to learn next year
-
-##Language Desire Next Year
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire <- function(survey_results,TotalNoofRows) {
-  survey_results %>%
-    filter(!is.na(LanguageDesireNextYear)) %>%
-    select(LanguageDesireNextYear) %>%
-    mutate(LanguageDesireNextYear = str_split(LanguageDesireNextYear, pattern = ";")) %>%
-    unnest(LanguageDesireNextYear) %>%
-    group_by(LanguageDesireNextYear) %>%
-    summarise(Count = n()/TotalNoofRows) %>%
-    arrange(desc(Count)) %>%
-    ungroup() %>%
-    mutate(TotalCount =  sum(Count)) %>%
-    mutate(Count =  Count/TotalCount) %>%
-    mutate(LanguageDesireNextYear = reorder(LanguageDesireNextYear,Count)) %>%
-    head(10) %>%
-    
-    ggplot(aes(x = LanguageDesireNextYear,y = Count)) +
-    geom_bar(stat='identity',fill= fillColor2) +
-    geom_text(aes(x = LanguageDesireNextYear,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-    labs(x = 'LanguageDesireNextYear', 
-         y='Percentage', 
-         title = 'LanguageDesireNextYear and Percentage') +
-    coord_flip() +
-    theme_bw()
-}
-
-plotLanguageDesire(survey_results,TotalNoofRows)
-
-```
-
-JavaScript,Python, HTML are the top languages which respondents want to learn next year
-
-#Language Worked With
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(LanguageWorkedWith)) %>%
-  select(LanguageWorkedWith) %>%
-  mutate(LanguageWorkedWith = str_split(LanguageWorkedWith, pattern = ";")) %>%
-  unnest(LanguageWorkedWith) %>%
+data_seqc2 <- motion_df %>% 
+  arrange(LanguageWorkedWith, YearsCodingNum) %>% 
+  group_by(LanguageWorkedWith) %>% 
+  summarise(n=n()) %>%
+  right_join(motion_df2, by="LanguageWorkedWith") %>%
   group_by(LanguageWorkedWith) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(TotalCount =  sum(Count)) %>%
-  mutate(Count =  Count/TotalCount) %>%
-  mutate(LanguageWorkedWith = reorder(LanguageWorkedWith,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = LanguageWorkedWith,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = LanguageWorkedWith,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'LanguageWorkedWith', 
-       y='Percentage', 
-       title = 'LanguageWorkedWith and Percentage') +
-  coord_flip() +
-  theme_bw()
+  do(sequence = list_parse(select(., x = YearsCodingNum, y = AvgSalary, z = n)))
+
+data2 <- left_join(data_strt2, data_seqc2)  
+
+highchart() %>% 
+  hc_add_series(data = data2, type = "bubble",
+                minSize = 0, maxSize = 30, dataLabels = list(enabled = TRUE, format = "{point.LanguageWorkedWith}")) %>% 
+  hc_motion(enabled = TRUE, series = 0, labels = unique(motion_df2$YearsCodingNum),
+            loop = TRUE, 
+            updateInterval = 1000, magnet = list(step =  1)) %>% 
+  hc_plotOptions(series = list(showInLegend = FALSE)) %>% 
+  hc_xAxis(min = 0, max = 30, title = list(text = "Year Of Exp")) %>% 
+  hc_yAxis(min = 500, max = 200000, title = list(text = "Median Salary (USD)")) %>% 
+  hc_title(text = "Motion Plot of Programming Language vs Salary vs Year of Exp")  %>%
+  hc_tooltip(useHTML = TRUE, headerFormat = "", pointFormat = "{point.LanguageWorkedWith} Year Of Exp: {point.x}y Median Salary: ${point.y} No Of Response : {point.z}") %>% hc_add_theme(hc_theme_google())
 
 ```
 
-##Network Analysis -R           
+#### **Insight**
 
-The network graph shows the people associated with R
-
-```{r,message=FALSE,warning=FALSE}
-
-count_bigrams <- function(dataset) {
-  dataset %>%
-    unnest_tokens(bigram, LanguageWorkedWith, token = "ngrams", n = 2) %>%
-    separate(bigram, c("word1", "word2"), sep = " ") %>%
-    count(word1, word2, sort = TRUE)
-}
++ It is observed that Less Popular programming languages like Ocaml, Hack, Haskel, Julia etc tend to have higher Median Salaries with increasing work experience.
++ The more common programming languages like SQL, C#, JavaScript etc. have moderate levels of salaries with discrepancies ranging from $30000 to $70000.  
 
 
-visualize_bigrams <- function(bigrams) {
-  set.seed(2016)
-  a <- grid::arrow(type = "closed", length = unit(.15, "inches"))
-  
-  bigrams %>%
-    graph_from_data_frame() %>%
-    ggraph(layout = "fr") +
-    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE, arrow = a) +
-    geom_node_point(color = "lightblue", size = 5) +
-    geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
-    theme_void()
-  
-}
+### 6.5 Developer Salary by Gender
 
-visualize_bigrams_individual <- function(bigrams) {
-  set.seed(2016)
-  a <- grid::arrow(type = "closed", length = unit(.15, "inches"))
-  
-  bigrams %>%
-    graph_from_data_frame() %>%
-    ggraph(layout = "fr") +
-    geom_edge_link(aes(edge_alpha = n), show.legend = FALSE, arrow = a,end_cap = circle(.07, 'inches')) +
-    geom_node_point(color = "lightblue", size = 5) +
-    geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
-    theme_void()
-}
+```{r}
 
-
-survey_results %>%
-  count_bigrams() %>%
-   filter(word1 == "r" | word2 == "r") %>%
-  filter( n > 50) %>%
-  visualize_bigrams()
+by_salary_gender <- survey_results_public %>% select(Gender,Salary,YearsCodingProf) %>%
+                        mutate(YearsCodingNum = parse_number(YearsCodingProf),
+                                    Gender = str_split(Gender, pattern = ";"),
+                                    Salary = as.numeric(Salary)) %>%
+                                    unnest(Gender) %>% 
+                                    filter(!is.na(Salary)) %>%
+                                    select(Gender, YearsCodingNum, Salary) %>% 
+                                    filter(!is.na(Gender)) %>% group_by(Gender,YearsCodingNum) %>% 
+                                    summarize(AvgSalary = median(Salary, na.rm=TRUE))
+                                    
+hchart(by_salary_gender, "line", hcaes(x = YearsCodingNum, y = AvgSalary, group = Gender)) %>%
+hc_xAxis(min = 0, max = 30, title = list(text = "Year Of Exp")) %>% 
+  hc_yAxis(min = 500, max = 200000, title = list(text = "Median Salary (USD)"))  %>% hc_add_theme(hc_theme_google())
 
 ```
 
+#### **Insight**
 
-
-##Network Analysis -Python
-
-The network graph shows the people associated with python
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  count_bigrams() %>%
-   filter(word1 == "python" | word2 == "python") %>%
-  filter( n > 50) %>%
-  visualize_bigrams()
-
-```
++ For 0-6 years, Females have higher median salaries. However the number of females is lower.
++ For 9-30 years, Transgenders & Non Binary genders have higher salaries with a single instance of Males having high salary (27 years).
++ A general trend of increase in salary is seen for all the genders with increase in experience but the number of respondents earning high salaries is lower.
++ Also, since the number of Females, Transgenders & Non-Binary gender respondents is low (accounts for 10% of total gender distribution) so the median values are not a reliable source as they are skewed. A much more stable and gradually increasing graph can be seen for Males due to abundance of data.
 
 
 
-#IDE Analysis
+### 6.6 Developer Type vs Median Salary by Year of Exp
 
-```{r,message=FALSE,warning=FALSE}
+```{r}
 
-survey_results %>%
-  filter(!is.na(IDE)) %>%
-  select(IDE) %>%
-  mutate(IDE = str_split(IDE, pattern = ";")) %>%
-  unnest(IDE) %>%
-  group_by(IDE) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(TotalCount =  sum(Count)) %>%
-  mutate(Count =  Count/TotalCount) %>%
-  mutate(IDE = reorder(IDE,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = IDE,y = Count)) +
-  geom_bar(stat='identity',fill= fillColorLightCoral) +
-  geom_text(aes(x = IDE,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'IDE', 
-       y='Percentage', 
-       title = 'IDE and Percentage') +
-  coord_flip() +
-  theme_bw()
+by_salary_devtype <- survey_results_public %>% select(DevType,Salary,YearsCodingProf) %>%
+                        mutate(YearsCodingNum = parse_number(YearsCodingProf),
+                                    DevType = str_split(DevType, pattern = ";"),
+                                    Salary = as.numeric(Salary)) %>%
+                                    unnest(DevType) %>% 
+                                    filter(!is.na(Salary)) %>%
+                                    select(DevType, YearsCodingNum, Salary) %>% 
+                                    filter(!is.na(DevType)) %>% group_by(DevType,YearsCodingNum) %>% 
+                                    summarize(AvgSalary = median(Salary, na.rm=TRUE))
+                                    
+hchart(by_salary_devtype, "spline", hcaes(x = YearsCodingNum, y = AvgSalary, group = DevType)) %>%
+hc_xAxis(min = 0, max = 30, title = list(text = "Year Of Exp")) %>% 
+hc_yAxis(min = 500, max = 180000, title = list(text = "Median Salary (USD)"))  %>%
+hc_legend(align = "left", layout = "vertical", verticalAlign = "top") %>% 
+hc_tooltip(sort = TRUE, table = TRUE)  %>%
+hc_title(text = "Developer Type vs Median Salary by Year of Exp")  %>% 
+hc_add_theme(hc_theme_google())
 
 ```
 
-Visual Studio Code, Visual Studio and Notepad++ are the top IDE which respondents want to learn next year
+### 6.7  Programming Language vs Median Salary by Year of Exp
 
 
-#Version Control Analysis
+```{r}
 
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(VersionControl)) %>%
-  select(VersionControl) %>%
-  mutate(VersionControl = str_split(VersionControl, pattern = ";")) %>%
-  unnest(VersionControl) %>%
-  group_by(VersionControl) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(TotalCount =  sum(Count)) %>%
-  mutate(Count =  Count/TotalCount) %>%
-  mutate(VersionControl = reorder(VersionControl,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = VersionControl,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = VersionControl,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'VersionControl',
-       y='Percentage', 
-       title = 'VersionControl and Percentage') +
-  coord_flip() +
-  theme_bw()
+by_salary_LanguageWorkedWith <- survey_results_public %>% select(LanguageWorkedWith,Salary,YearsCodingProf) %>%
+                        mutate(YearsCodingNum = parse_number(YearsCodingProf),
+                                    LanguageWorkedWith = str_split(LanguageWorkedWith, pattern = ";"),
+                                    Salary = as.numeric(Salary)) %>%
+                                    unnest(LanguageWorkedWith) %>% 
+                                    filter(!is.na(Salary)) %>%
+                                    select(LanguageWorkedWith, YearsCodingNum, Salary) %>% 
+                                    filter(!is.na(LanguageWorkedWith)) %>% group_by(LanguageWorkedWith,YearsCodingNum) %>% 
+                                    summarize(AvgSalary = median(Salary, na.rm=TRUE))
+                                    
+hchart(by_salary_LanguageWorkedWith, "spline", hcaes(x = YearsCodingNum, y = AvgSalary, group = LanguageWorkedWith)) %>%
+hc_xAxis(min = 0, max = 30, title = list(text = "Year Of Exp")) %>% 
+hc_yAxis(min = 500, max = 180000, title = list(text = "Median Salary (USD)"))  %>%
+hc_legend(align = "left", layout = "vertical", verticalAlign = "top") %>% 
+hc_tooltip(sort = TRUE, table = TRUE)  %>%
+hc_title(text = "Programming Language vs Median Salary by Year of Exp")  %>% 
+hc_add_theme(hc_theme_google())
 
 ```
 
-Git, Subversion and Team Foundation Version Control are the top Version Control tools that the respondents use.
+## 7. What do developers think about AI Technology?
 
-#Communication Tool Analysis
+### 7.1 Most Dangerous Aspect of Increasingly Advanced AI Technology
 
+```{r}
 
-```{r,message=FALSE,warning=FALSE}
+by_AIDangerous <- survey_results_public %>%
+                        filter(!is.na(AIDangerous)) %>%
+                        group_by(AIDangerous) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(AIDangerous = reorder(AIDangerous,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100))
 
-survey_results %>%
-  filter(!is.na(CommunicationTools)) %>%
-  select(CommunicationTools) %>%
-  mutate(CommunicationTools = str_split(CommunicationTools, pattern = ";")) %>%
-  unnest(CommunicationTools) %>%
-  group_by(CommunicationTools) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(TotalCount =  sum(Count)) %>%
-  mutate(Count =  Count/TotalCount * 100) %>%
-  mutate(CommunicationTools = reorder(CommunicationTools,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = CommunicationTools,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = CommunicationTools,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'CommunicationTools', 
-       y='Percentage', 
-       title = 'CommunicationTools and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-Slack, Jira, Office productivity tools are the top Communication tools that the respondents use.
-
-#Methodology analysis
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(Methodology)) %>%
-  select(Methodology) %>%
-  mutate(Methodology = str_split(Methodology, pattern = ";")) %>%
-  unnest(Methodology) %>%
-  group_by(Methodology) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(TotalCount =  sum(Count)) %>%
-  mutate(Count =  Count/TotalCount) %>%
-  mutate(Methodology = reorder(Methodology,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = Methodology,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = Methodology,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Methodology', 
-       y='Percentage', 
-       title = 'Methodology and Percentage') +
-  coord_flip() +
-  theme_bw()
+          highchart() %>%
+                      hc_xAxis(categories = by_AIDangerous$AIDangerous) %>% 
+                      hc_add_series(name = "Percent %", data = by_AIDangerous$Percent, colorByPoint =  1) %>% 
+                      hc_title(text = "Most Dangerous Aspect of Increasingly Advanced AI Technology")  %>%
+                      hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
 ```
 
 
-Agile, Scrum , Kanban are the top Methodology tools that respondents are using.      
+### 7.2 Most Dangerous Aspect by Developer Type
 
+```{r}
 
-#Lifestyle Analysis
+survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
+                                                        unnest(DevType)
 
-* 9-12 hours is the most popular (38%) time interval that developers spend in front of the computer.          
+df1 <- survey_results_public2 %>%
+       filter(!is.na(DevType)) %>%
+       group_by(name = DevType, drilldown = tolower(DevType)) %>% 
+       summarise(y = n()) %>% arrange(desc(y))
 
-* 1-2 hours is the most popular (28%) time interval that developers hours outside.          
-
-* Most devs (46%) never skip meals        
-
-* Ergonomic Keyboard or mouse , Standing desk , both 10% of the population are the most popular ergonomic devices used by the developers.           
-
-
-##The Number of Hours in Computer
-
-
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(HoursComputer)) %>%
-  select(HoursComputer) %>%
-  group_by(HoursComputer) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HoursComputer = reorder(HoursComputer,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = HoursComputer,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = HoursComputer,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'HoursComputer', 
-       y='Percentage', 
-       title = 'HoursComputer and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-9-12 hours is the most popular (38%) time interval that developers spend in front of the computer.
-
-##Hours Outside
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(HoursOutside)) %>%
-  select(HoursOutside) %>%
-  group_by(HoursOutside) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HoursOutside = reorder(HoursOutside,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = HoursOutside,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = HoursOutside,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'HoursOutside', 
-       y='Percentage', 
-       title = 'HoursOutside and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-1-2 hours is the most popular (28%) time interval that developers hours outside.
-
-##SkipMeals
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(SkipMeals)) %>%
-  select(SkipMeals) %>%
-  group_by(SkipMeals) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(SkipMeals = reorder(SkipMeals,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = SkipMeals,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = SkipMeals,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'SkipMeals', 
-       y='Percentage', 
-       title = 'SkipMeals and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-Most devs (46%) never skip meals 
-
-##Ergonomic Devices
-
-Ergonomic Keyboard or mouse , Standing desk , both 10% of the population are the most popular ergonomic devices used by the developers.          
-
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(ErgonomicDevices)) %>%
-  select(ErgonomicDevices) %>%
-  group_by(ErgonomicDevices) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(ErgonomicDevices = reorder(ErgonomicDevices,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = ErgonomicDevices,y = Count)) +
-  geom_bar(stat='identity',fill= fillColorLightCoral) +
-  geom_text(aes(x = ErgonomicDevices,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'ErgonomicDevices', 
-       y='Percentage', 
-       title = 'ErgonomicDevices and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-
-#Salary Analysis
-
-* Engineering Manager, DevOps Specialist, C Suite executive are the top positions which have the highest salaries.        
-
-* United States, Switzerland, Israel, Norway and Denmark are the countries with the highest median salaries with respondents of 100 or more.          
-
-* The highest median salary for `25-34 years` old is **95K**. US, Switzerland , Israel , Denmark and Australia are the top Five countries which has the highest salaries in this group. 
-
-* The highest median salary for `35-44 years` old is **495K** followed by more acceptable **120K**. Venezuala, US, Switzerland , Israel , Denmark and Norway are the top Six countries which has the highest salaries in this group.           
-
-* The highest median salary for `45-54 years` old is **1000K** followed by more acceptable **130K**. Venezuala, HongKong, Switzerland , US, Ireland , Israel , Denmark and UAE are the top Eight countries which has the highest salaries in this group.          
-       
-* Marketing or Sales Professional, C Suite Executives, Academic Researchers , Engineering Managers and Product Managers get the highest salary in USA.      
-
-##Salary Analysis by DevType
-
-Engineering Manager, DevOps Specialist, C Suite executive are the top positions which have the highest salaries.             
-
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(DevType)) %>%
-  select(DevType,ConvertedSalary) %>%
-  mutate(DevType = str_split(DevType, pattern = ";")) %>%
-  unnest(DevType) %>%
-  group_by(DevType) %>%
-  summarise(MedianSalary = median(ConvertedSalary,na.rm = TRUE)) %>%
-  arrange(desc(MedianSalary)) %>%
-  ungroup() %>%
-  mutate(DevType = reorder(DevType,MedianSalary)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = DevType,y = MedianSalary)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = DevType, y = 1, label = paste0("( ",round(MedianSalary/1e3)," K)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  labs(x = 'DevType', 
-       y = 'Median Salary', 
-       title = 'DevType and Median Salary') +
-  coord_flip() +
-  theme_bw()
-
-
-```
-
-
-##Salary Analysis with Countries 100 and more respondents
-
-United States, Switzerland, Israel, Norway and Denmark are the countries with the highest median salaries with respondents of 100 or more.          
-
-
-```{r,message=FALSE,warning=FALSE}
-
-Countries <- survey_results %>%
-  filter(!is.na(Country)) %>%
-  group_by(Country) %>%
-  summarise(Count = n()) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(Country = reorder(Country,Count))
-
-Countries100AndMore <- Countries %>%
-  filter(Count >= 100)
-
-
-survey_results %>%
-  filter(Country %in% Countries100AndMore$Country) %>%
-  group_by(Country) %>%
-  summarise(MedianSalary = median(ConvertedSalary,na.rm = TRUE)) %>%
-  arrange(desc(MedianSalary)) %>%
-  ungroup() %>%
-  mutate(Country = reorder(Country,MedianSalary)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = Country,y = MedianSalary)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = Country, y = 1, label = paste0("( ",round(MedianSalary/1e3)," K)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  labs(x = 'Country', 
-       y = 'Median Salary', 
-       title = 'Country and Median Salary') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-
-```{r,message=FALSE,warning=FALSE}
-
-plotSalary <- function(datasetName,fillColorName) {
-  
-  datasetName %>%
-    filter(Country %in% Countries100AndMore$Country) %>%
-    group_by(Country) %>%
-    summarise(MedianSalary = median(ConvertedSalary,na.rm = TRUE)) %>%
-    arrange(desc(MedianSalary)) %>%
-    ungroup() %>%
-    mutate(Country = reorder(Country,MedianSalary)) %>%
-    head(10) %>%
+df2 <-survey_results_public2 %>% filter(!is.na(DevType)) %>% filter(!is.na(AIDangerous)) %>% group_by(DevType,AIDangerous) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = DevType, id = tolower(DevType),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = AIDangerous, drilldown = tolower(paste(DevType,AIDangerous,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) 
+    )
     
-    ggplot(aes(x = Country,y = MedianSalary)) +
-    geom_bar(stat='identity',fill= fillColorName) +
-    geom_text(aes(x = Country, y = 1, label = paste0("( ",round(MedianSalary/1e3)," K)",sep="")),
-              hjust=0, vjust=.5, size = 4, colour = 'black',
-              fontface = 'bold') +
-    labs(x = 'Country', 
-         y = 'Median Salary', 
-         title = 'Country and Median Salary') +
-    coord_flip() +
-    theme_bw()
-  
-}
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Developer wise Opinion on Dangerous Aspect of AI') %>%
+  hc_add_series(data = df1, name = "Developer Type",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
 
 ```
 
+### 7.3 Most Exciting Aspect of Increasingly Advanced AI Technology
 
-##Salary Analysis for 25 - 34 years old
+```{r}
 
-The highest median salary for 25-34 years old is **95K**. US, Switzerland , Israel , Denmark and Australia are the top Five countries which has the highest salaries in this group.        
+by_AIInteresting <- survey_results_public %>%
+                        filter(!is.na(AIInteresting)) %>%
+                        group_by(AIInteresting) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(AIInteresting = reorder(AIInteresting,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100))
 
-```{r,message=FALSE,warning=FALSE}
+highchart() %>%
+  hc_xAxis(categories = by_AIInteresting$AIInteresting) %>% 
+  hc_add_series(name = "Percent %", data = by_AIDangerous$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Most Exciting Aspect of Increasingly Advanced AI Technology")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
-survey_results_25_34 <- survey_results %>%
-  filter(Age == "25 - 34 years old")
-
-plotSalary(survey_results_25_34,fillColorName = fillColor)
-
-```
-
-##Salary Analysis for 35-44 year olds
-
-
-The highest median salary for 35-44 years old is **495K** followed by more acceptable **120K**. Venezuala, US, Switzerland , Israel , Denmark and Norway are the top Six countries which has the highest salaries in this group.                 
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results_35_44 <- survey_results %>%
-  filter(Age == "35 - 44 years old")
-
-plotSalary(survey_results_35_44,fillColorName = fillColorLightCoral)
-
-```
-
-
-##Salary Analysis for 45-54 year olds
-
-The highest median salary for 45-54 years old is **1000K** followed by more acceptable **130K**. Venezuala, HongKong, Switzerland , US, Ireland , Israel , Denmark and UAE are the top Eight countries which has the highest salaries in this group.         
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results_45_54 <- survey_results %>%
-  filter(Age == "45 - 54 years old")
-
-plotSalary(survey_results_45_54,fillColorName = fillColor2)
-
-```
-
-## Salary Analysis Dev Types- Years of Experience in USA
-
-Marketing or Sales Professional, C Suite Executives, Academic Researchers , Engineering Managers and Product Managers get the highest salary in USA.            
-
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(Country == "United States") %>%
-  select(DevType,YearsCoding,ConvertedSalary) %>%
-  mutate(DevType = str_split(DevType, pattern = ";")) %>%
-  unnest(DevType) %>%
-  group_by(DevType,YearsCoding) %>%
-  summarise(MedianSalary = median(ConvertedSalary,na.rm = TRUE)) %>%
-  arrange(desc(MedianSalary)) %>%
-  ungroup() %>%
-  mutate(YearsCoding = as.character(YearsCoding),
-         DevType = as.character(DevType)) %>%
-  mutate(DevType_YearsOfCoding = paste(DevType,YearsCoding)) %>%
-  mutate(DevType_YearsOfCoding =str_replace(DevType_YearsOfCoding,"NA","")) %>%
-  mutate(DevType_YearsOfCoding = reorder(DevType_YearsOfCoding,MedianSalary)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = DevType_YearsOfCoding,y = MedianSalary)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = DevType_YearsOfCoding, y = 1, label = paste0("( ",round(MedianSalary,2)/1e3," K)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  labs(x = 'DevType_YearsOfCoding', 
-       y='MedianSalary', 
-       title = 'DevType_YearsOfCoding and MedianSalary') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-#AI Analysis
-
-
-##AI Interesting
-
-Answers for `What do you think is the most exciting aspect of increasingly advanced AI technology?`
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AIInteresting)) %>%
-  select(AIInteresting) %>%
-  group_by(AIInteresting) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(AIInteresting = reorder(AIInteresting,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = AIInteresting,y = Count)) +
-  geom_bar(stat='identity',fill= fillColorLightCoral) +
-  geom_text(aes(x = AIInteresting,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'AIInteresting', 
-       y = 'Percentage', 
-       title = 'AIInteresting and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-##AI Responsible
-
-Answers for `Whose responsibility is it, primarily, to consider the ramifications of increasingly advanced AI technology?`
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AIResponsible)) %>%
-  select(AIResponsible) %>%
-  group_by(AIResponsible) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(AIResponsible = reorder(AIResponsible,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = AIResponsible,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor) +
-  geom_text(aes(x = AIResponsible,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'AIResponsible', 
-       y = 'Percentage', 
-       title = 'AIResponsible and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-##AI Future
-
-Answers for `Overall, what's your take on the future of artificial intelligence?`
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AIFuture)) %>%
-  select(AIFuture) %>%
-  group_by(AIFuture) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(AIFuture = reorder(AIFuture,Count)) %>%
-  head(10) %>%
-  
-  ggplot(aes(x = AIFuture,y = Count)) +
-  geom_bar(stat='identity',fill= fillColor2) +
-  geom_text(aes(x = AIFuture,y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'AIFuture', 
-       y = 'Percentage', 
-       title = 'AIFuture and Percentage') +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-#Assess Job{.tabset .tabset-fade .tabset-pills}
-
-The questions have been framed on different topics for developers on how they assess the job. The framework of the questions have 1 with the most important and 10 is the least important.         
-
-Developors provide the **Most Importance**  to               
-
-* The languages, frameworks, and other technologies                 
-
-* The compensation and benefits          
-
-* The office environment or company culture          
-
-* Opportunities for professional development               
-
-* The opportunity to work from home/remotely               
-
-## Preference of Industry Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-breaks = c(1:10)
-
-TotalNoofRows = nrow(survey_results)
-
-survey_results %>%
-  filter(!is.na(AssessJob1)) %>%
-  group_by(AssessJob1) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob1 = as.numeric(AssessJob1)) %>%
-  
-  ggplot(aes(x = AssessJob1,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Industry I would be working on' ,y = 'Percentage', title = "Industry I would be working on") +
-  theme_bw()
-
-```
-
-The respondents are not concerned about the Industry that they would be working on.          
-
-## Financial performance or funding status of the company or organization Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob2)) %>%
-  group_by(AssessJob2) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob2 = as.numeric(AssessJob2)) %>%
-  
-  ggplot(aes(x = AssessJob2,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The financial performance or funding status of the company or organization' ,y = 'Count', title = paste("The financial performance or funding status of the company or organization")) +
-  theme_bw()
-
-```
-
-The respondents are not concerned about the financial performance or funding status of the company or organization.    
-
-
-##Specific Department Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob3)) %>%
-  group_by(AssessJob3) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob3 = as.numeric(AssessJob3)) %>%
-  
-  ggplot(aes(x = AssessJob3,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColorLightCoral) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Specific Department Rating' ,y = 'Count', title = 'Specific Department Rating') +
-  theme_bw()
-
-```
-
-
-##Technologies Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob4)) %>%
-  group_by(AssessJob4) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob4 = as.numeric(AssessJob4)) %>%
-  
-  ggplot(aes(x = AssessJob4,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'Technologies Rating' ,y = 'Count', title = 'Technologies Rating') +
-  theme_bw()
-
-```
-
-##The compensation and benefits offered Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob5)) %>%
-  group_by(AssessJob5) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob5 = as.numeric(AssessJob5)) %>%
-  
-  ggplot(aes(x = AssessJob5,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The compensation and benefits offered Rating' ,y = 'Count', title = 'The compensation and benefits offered Rating') +
-  theme_bw()
-
-```
-
-
-##The office environment or company culture
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob6)) %>%
-  group_by(AssessJob6) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob6 = as.numeric(AssessJob6)) %>%
-  
-  ggplot(aes(x = AssessJob6,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The office environment or company culture Rating' ,y = 'Count', title = 'The office environment or company culture Rating') +
-  theme_bw()
-
-```
-
-##The opportunity to work from home/remotely
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob7)) %>%
-  group_by(AssessJob7) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob8 = as.numeric(AssessJob7)) %>%
-  
-  ggplot(aes(x = AssessJob7,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The opportunity to work from home/remotely' ,y = 'Count', title = 'The opportunity to work from home/remotely Rating') +
-  theme_bw()
-
-```
-
-
-##The Opportunities for professional development
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob8)) %>%
-  group_by(AssessJob8) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob8 = as.numeric(AssessJob8)) %>%
-  
-  ggplot(aes(x = AssessJob8,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The Opportunities for professional development' ,y = 'Count', title = 'The Opportunities for professional development Rating') +
-  theme_bw()
-
-```
-
-##The diversity of the company or organization
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob9)) %>%
-  group_by(AssessJob9) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob8 = as.numeric(AssessJob9)) %>%
-  
-  ggplot(aes(x = AssessJob9,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'The diversity of the company or organization' ,y = 'Count', title = 'The diversity of the company or organization Rating') +
-  theme_bw()
-
-```
-
-##How widely used or impactful the product or service I'd be working on is Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-survey_results %>%
-  filter(!is.na(AssessJob10)) %>%
-  group_by(AssessJob10) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessJob8 = as.numeric(AssessJob10)) %>%
-  
-  ggplot(aes(x = AssessJob10,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_x_continuous(limits = c(0, 11),breaks=breaks ) +   scale_y_continuous(labels = percent_format()) +
-  labs(x = 'How widely used or impactful the product or service' ,y = 'Count', title = 'How widely used or impactful the product or service') +
-  theme_bw()
-
-```
-
-
-#Assess Benefits Analysis{.tabset .tabset-fade .tabset-pills}
-
-The developers have assessed a **job benefits package** and provided ratings. ( 1- Most Important, 11 - Least Important).
-
-The most important factors while assessing the job benefits package are
-
-*  Salary and/or bonuses         
-
-*  Stock options or shares       
-
-*  Health insurance        
-
-* Retirement or pension savings matching  
-
-* Computer/office equipment allowance      
-
-* Conference or education budget               
-
-
-
-
-##Salary and/or bonuses Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-breaks = c(1:11)
-
-subjectName = 'Salary and/or bonuses Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits1)) %>%
-  group_by(AssessBenefits1) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits1 = as.numeric(AssessBenefits1)) %>%
-  
-  ggplot(aes(x = AssessBenefits1,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-```
-
-
-##Stock options or shares Rating
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Stock options or shares Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits2)) %>%
-  group_by(AssessBenefits2) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits2 = as.numeric(AssessBenefits2)) %>%
-  
-  ggplot(aes(x = AssessBenefits2,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-```
-
-##Health insurance
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Health insurance Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits3)) %>%
-  group_by(AssessBenefits3) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits3 = as.numeric(AssessBenefits3)) %>%
-  
-  ggplot(aes(x = AssessBenefits3,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-##Parental leave
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Parental leave Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits4)) %>%
-  group_by(AssessBenefits4) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits4 = as.numeric(AssessBenefits4)) %>%
-  
-  ggplot(aes(x = AssessBenefits4,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-
-##Fitness or wellness benefit
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Fitness or wellness benefit Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits5)) %>%
-  group_by(AssessBenefits5) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits5 = as.numeric(AssessBenefits5)) %>%
-  
-  ggplot(aes(x = AssessBenefits5,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColorLightCoral) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-##Retirement or pension savings matching
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Retirement or pension savings matching Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits6)) %>%
-  group_by(AssessBenefits6) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits6 = as.numeric(AssessBenefits6)) %>%
-  
-  ggplot(aes(x = AssessBenefits6,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-
-##Company-provided meals or snacks
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = ' Company-provided meals or snacks Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits7)) %>%
-  group_by(AssessBenefits7) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits7 = as.numeric(AssessBenefits7)) %>%
-  
-  ggplot(aes(x = AssessBenefits7,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-##Computer/office equipment allowance
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = ' Computer/office equipment allowance Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits8)) %>%
-  group_by(AssessBenefits8) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits8 = as.numeric(AssessBenefits8)) %>%
-  
-  ggplot(aes(x = AssessBenefits8,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-
-##Childcare benefit
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = ' Childcare benefit Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits9)) %>%
-  group_by(AssessBenefits9) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits9 = as.numeric(AssessBenefits9)) %>%
-  
-  ggplot(aes(x = AssessBenefits9,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-##Transportation benefit
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = ' Transportation benefit Rating'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits10)) %>%
-  group_by(AssessBenefits10) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits10 = as.numeric(AssessBenefits10)) %>%
-  
-  ggplot(aes(x = AssessBenefits10,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColorLightCoral) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-
-
-```
-
-
-##Conference or education budget
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = ' Conference or education budget'
-
-survey_results %>%
-  filter(!is.na(AssessBenefits11)) %>%
-  group_by(AssessBenefits11) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(AssessBenefits11 = as.numeric(AssessBenefits11)) %>%
-  
-  ggplot(aes(x = AssessBenefits11,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_x_continuous(limits = c(0, 12),breaks=breaks ) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  theme_bw()
-
-```
-
-#Developer Mentalities{.tabset .tabset-fade .tabset-pills}
-
-We explore the Developer mentalities here. 
-
-* Developers have sense of kinship or connection to other developers    
-
-* Developers agree they have a competition among peers       
-
-* They also agree they are as good as other developers            
-
-##Sense of kinship or connection to other developers -  Agree / Disagree 
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Sense of kinship or connection to other developers"
-
-survey_results %>%
-  filter(!is.na(AgreeDisagree1)) %>%
-  group_by(AgreeDisagree1) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = AgreeDisagree1,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-  
-
-##Competing with my peers - Agree / Disagree 
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Competing with my peers"
-
-survey_results %>%
-  filter(!is.na(AgreeDisagree2)) %>%
-  group_by(AgreeDisagree2) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = AgreeDisagree2,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-
-##Not as good at programming as most of my peers -  Agree / Disagree 
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Not as good at programming as most of my peers"
-
-survey_results %>%
-  filter(!is.na(AgreeDisagree3)) %>%
-  group_by(AgreeDisagree3) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  ggplot(aes(x = AgreeDisagree3,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-
-#Ethics analysis{.tabset .tabset-fade .tabset-pills}
-
-* Most developers will not write unethical code             
-
-* Regarding reporting unethical code, developers would report after assessing what it is         
-
-* The developers feel the ethics repsonsibility stands with the upper management at the company        
-
-* The developers also feel that they are obligated to consider the ethical implications of the code that they write
-
-##Will you write the unethical code if requested?
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Will you write the unethical code if requested?"
-
-TotalNoofRows = nrow(survey_results)
-
-survey_results %>%
-  filter(!is.na(EthicsChoice)) %>%
-  group_by(EthicsChoice) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = EthicsChoice,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-```
-
-##Do you report or otherwise call out the unethical code in question?
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Do you report or otherwise call out the unethical code in question?"
-
-survey_results %>%
-  filter(!is.na(EthicsReport)) %>%
-  group_by(EthicsReport) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = EthicsReport,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-```
-
-
-##Most responsible for code that accomplishes something unethical?
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Most responsible for code that accomplishes something unethical?"
-
-survey_results %>%
-  filter(!is.na(EthicsResponsible)) %>%
-  group_by(EthicsResponsible) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = EthicsResponsible,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColorLightCoral) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-```
-
-
-##Obligation to consider the ethical implications of the code that you write
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "Obligation to consider the ethical implications of the code that you write"
-
-survey_results %>%
-  filter(!is.na(EthicalImplications)) %>%
-  group_by(EthicalImplications) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = EthicalImplications,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-```
-
-#Stack Overflow Inclusivity analysis{.tabset .tabset-fade .tabset-pills}
-
-
-* Most Developers would recommend StackOverflow to a friend or colleague         
-
-* Most Developers visit StackOverflow almost daily          
-
-* Most Developers have a StackOverflow account       
-
-* Most Developers participate in Q&A less than once a month/monthly in  on Stack Overflow          
-
-* Most Developers have visited StackOverflow Jobs
-
-* Most Developers are unaware of the Stack Overflow Developer Story feature        
-
-* Most Developers would recommend Stack Overflow Jobs to a friend or colleague              
-
-* Most Developers consider themselves as  a member of the Stack Overflow community                
-
-
-
-##Recommend Stack Overflow overall to a friend or colleague
-
-This is the answer to the question "How likely is it that you would recommend Stack Overflow overall to a friend or colleague? "
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Recommend "
-
-TotalNoofRows = nrow(survey_results)
-
-survey_results %>%
-  filter(!is.na(StackOverflowRecommend)) %>%
-  group_by(StackOverflowRecommend) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = StackOverflowRecommend,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("red")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-##StackOverflow visit frequency
-
-
-This is the answer to the question "How frequently would you say you visit Stack Overflow? "
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Visit "
-
-survey_results %>%
-  filter(!is.na(StackOverflowVisit)) %>%
-  group_by(StackOverflowVisit) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  mutate(StackOverflowVisit = reorder(StackOverflowVisit,Count)) %>%
-  
-  ggplot(aes(x = StackOverflowVisit,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-
-```
-
-##StackOverflow Account
-
-This is the answer to the question "Do you have a Stack Overflow account? "
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Account "
-
-survey_results %>%
-  filter(!is.na(StackOverflowHasAccount)) %>%
-  group_by(StackOverflowHasAccount) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  ggplot(aes(x = StackOverflowHasAccount,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-```
-
-##StackOverflow Participate
-
-This is the answer to the question "How frequently would you say you participate in Q&A on Stack Overflow? By participate we mean ask, answer, vote for, or comment on questions."
-
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Participate "
-
-survey_results %>%
-  filter(!is.na(StackOverflowParticipate)) %>%
-  group_by(StackOverflowParticipate) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(StackOverflowParticipate = reorder(StackOverflowParticipate,Count)) %>%
-  
-  ggplot(aes(x = StackOverflowParticipate,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-
-```
-
-##StackOverflow Jobs
-
-This is the answer to the question "Have you ever used or visited Stack Overflow Jobs?"
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Jobs "
-
-survey_results %>%
-  filter(!is.na(StackOverflowJobs)) %>%
-  group_by(StackOverflowJobs) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(StackOverflowJobs = reorder(StackOverflowJobs,Count)) %>%
-  
-  
-  ggplot(aes(x = StackOverflowJobs,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColorLightCoral) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-
-```
-
-##StackOverflow up-to-date Developer Story
-
-This is the answer to the question "Do you have an up-to-date Developer Story on Stack Overflow?"
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow DevStory "
-
-survey_results %>%
-  filter(!is.na(StackOverflowDevStory)) %>%
-  group_by(StackOverflowDevStory) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = StackOverflowDevStory,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-
-##StackOverflow Jobs Recommend
-
-This is the answer to the question "How likely is it that you would recommend Stack Overflow Jobs to a friend or colleague? Where 0 is not likely at all and 10 is very likely."
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Jobs Recommend "
-
-survey_results %>%
-  filter(!is.na(StackOverflowJobsRecommend)) %>%
-  group_by(StackOverflowJobsRecommend) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = StackOverflowJobsRecommend,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = fillColor2) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-##StackOverflow Consider Member
-
-This is the answer to the question "Do you consider yourself a member of the Stack Overflow community?"
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = "StackOverflow Consider Member "
-
-survey_results %>%
-  filter(!is.na(StackOverflowConsiderMember)) %>%
-  group_by(StackOverflowConsiderMember) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  ungroup() %>%
-  
-  
-  ggplot(aes(x = StackOverflowConsiderMember,y=Count))+
-  geom_bar(stat='identity',colour="white", fill = c("blue")) +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Percentage', title = subjectName) +
-  theme_bw()
-
-
-```
-
-
-#Hypothetical Tools Interest{.tabset .tabset-fade .tabset-pills}
-
-Most Developers show the following interests for the Hypothetical Tools
-
-* Not At all Interested for A private area for people new to programming
-
-* Somewhat Interested for A programming-oriented blog platform
-
-* **Very Interested** for `An employer or job review system`
-
-* Somewhat Interested for An area for Q&A related to career growth
-
-##Interest in Hypothetical Tools
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Hypothetical Tools Interest'
-
-survey_results %>%
-  filter(!is.na(HypotheticalTools1)) %>%
-  group_by(HypotheticalTools1) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HypotheticalTools1 = reorder(HypotheticalTools1,Count)) %>%
- 
-  ggplot(aes(x = HypotheticalTools1,y=Count))+
-  geom_bar(stat='identity',colour="white", fill =fillColor) +
-  geom_text(aes(x = HypotheticalTools1, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-```
-
-##Private Area for people new in Programming
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'Private Area for people new in Programming'
-
-survey_results %>%
-  filter(!is.na(HypotheticalTools2)) %>%
-  group_by(HypotheticalTools2) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HypotheticalTools2 = reorder(HypotheticalTools2,Count)) %>%
-  
-  ggplot(aes(x = HypotheticalTools2,y=Count))+
-  geom_bar(stat='identity',colour="white", fill =fillColor2) +
-  geom_text(aes(x = HypotheticalTools2, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-```
-
-##A programming-oriented blog platform
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'A programming-oriented blog platform'
-
-survey_results %>%
-  filter(!is.na(HypotheticalTools3)) %>%
-  group_by(HypotheticalTools3) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HypotheticalTools3 = reorder(HypotheticalTools3,Count)) %>%
-  
-  ggplot(aes(x = HypotheticalTools3,y=Count))+
-  geom_bar(stat='identity',colour="white", fill =fillColorLightCoral) +
-  geom_text(aes(x = HypotheticalTools3, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-##An employer or job review system
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'An employer or job review system'
-
-survey_results %>%
-  filter(!is.na(HypotheticalTools4)) %>%
-  group_by(HypotheticalTools4) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HypotheticalTools4 = reorder(HypotheticalTools4,Count)) %>%
-  
-  ggplot(aes(x = HypotheticalTools4,y=Count))+
-  geom_bar(stat='identity',colour="white", fill =fillColor) +
-  geom_text(aes(x = HypotheticalTools4, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-```
-
-##An area for Q&A related to career growth
-
-```{r,message=FALSE,warning=FALSE}
-
-subjectName = 'An area for Q&A related to career growth'
-
-survey_results %>%
-  filter(!is.na(HypotheticalTools5)) %>%
-  group_by(HypotheticalTools5) %>%
-  summarise(Count = n()/TotalNoofRows) %>%
-  arrange(desc(Count)) %>%
-  ungroup() %>%
-  mutate(HypotheticalTools5 = reorder(HypotheticalTools5,Count)) %>%
-  
-  ggplot(aes(x = HypotheticalTools5,y=Count))+
-  geom_bar(stat='identity',colour="white", fill =fillColor2) +
-  geom_text(aes(x = HypotheticalTools5, y = .01, label = paste0("( ",round(Count*100,2)," %)",sep="")),
-            hjust=0, vjust=.5, size = 4, colour = 'black',
-            fontface = 'bold') +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = subjectName ,y = 'Count', title = subjectName) +
-  coord_flip() +
-  theme_bw()
-
-```
-
-
-#Persona Engineering Manager{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 88K and Mean Salary of 129K            
-
-* Most have a Bachelor's degree in Computer Science             
- 
-* Most want to learn Linux,AWS and Android in the Platform area                   
-
-* Most want to learn Node,React and TensorFlow in the Framework area              
-
-* Most want to learn PostgreSQL,MySQL and MongoDB in the Database area       
-
-* Most want to learn Javascript,HTML and CSS in the Language area           
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-eng_manager <- survey_results %>%
-  filter(str_detect(DevType,"Engineering"))
-
-TotalNoofRows = nrow(eng_manager) 
-
-eng_manager %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor2) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(eng_manager$ConvertedSalary)
-
-```
-
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotFormalEducation(eng_manager,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(eng_manager,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(eng_manager,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(eng_manager,TotalNoofRows)
-
-```
-
-##DatabaseDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire(eng_manager,TotalNoofRows)
-
-```
-
-##LanguageDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(eng_manager,TotalNoofRows)
-
-```
-
-
-#Persona C-Suite Executive{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 69K and Mean Salary of 117 K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,AWS and Android in the Platform area              
-
-* Most want to learn Node,React and TensorFlow in the Framework area              
-
-* Most want to learn PostgreSQL,MySQL and MongoDB in the Database area      
-
-* Most want to learn Javascript,HTML and CSS in the Language area       
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-c_suite <- survey_results %>%
-  filter(str_detect(DevType,"C-suite"))
-
-TotalNoofRows = nrow(c_suite) 
-
-c_suite %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(c_suite$ConvertedSalary)
-
-```
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-
-
-plotFormalEducation(c_suite,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(c_suite,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(c_suite,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(c_suite,TotalNoofRows)
-
-```
-
-##DatabaseDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire(c_suite,TotalNoofRows)
-
-```
-
-##LanguageDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(c_suite,TotalNoofRows)
-
-```
-
-
-#Persona DevOps specialist{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 72K and Mean Salary of 115 K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,AWS and Raspberry Pi in the Platform area              
-
-* Most want to learn Node,React and Angular in the Framework area              
-
-* Most want to learn PostgreSQL,Redis and ElasticSearch in the Database area      
-
-* Most want to learn Javascript,Python and Bash/Shell in the Language area                 
-
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-devops <- survey_results %>%
-  filter(str_detect(DevType,"DevOps specialist"))
-
-TotalNoofRows = nrow(devops) 
-
-devops %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(devops$ConvertedSalary)
-
-```
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-
-
-plotFormalEducation(devops,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(devops,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(devops,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(devops,TotalNoofRows)
-
-```
-
-##DatabaseDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire(devops,TotalNoofRows)
-
-```
-
-##LanguageDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(devops,TotalNoofRows)
-
-```
-
-
-
-#Persona Back-end developer{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 55K and Mean Salary of 96 K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,Android and AWS in the Platform area              
-
-* Most want to learn Node,React and Angular in the Framework area              
-
-* Most want to learn MySQL,PostgreSQL,MongoDB in the Database area      
-
-* Most want to learn Javascript,HTML and SQL in the Language area                 
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-backend <- survey_results %>%
-  filter(str_detect(DevType,"Back-end developer"))
-
-TotalNoofRows = nrow(backend) 
-
-backend %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(backend$ConvertedSalary)
-
-```
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-
-
-plotFormalEducation(backend,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(backend,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(backend,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(backend,TotalNoofRows)
-
-```
-
-##DatabaseDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire(backend,TotalNoofRows)
-
-```
-
-##LanguageDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(backend,TotalNoofRows)
-
-```
-
-
-#Persona Front-end developer{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 51K and Mean Salary of 95K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,Android and AWS in the Platform area              
-
-* Most want to learn Node,React and Angular in the Framework area              
-
-* Most want to learn MySQL,MongoDB,PostgreSQL in the Database area      
-
-* Most want to learn Javascript,HTML and CSS in the Language area              
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-frontend <- survey_results %>%
-  filter(str_detect(DevType,"Front-end developer"))
-
-TotalNoofRows = nrow(frontend) 
-
-frontend %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(frontend$ConvertedSalary)
-
-```
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-
-
-plotFormalEducation(frontend,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(frontend,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(frontend,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(frontend,TotalNoofRows)
-
-```
-
-##DatabaseDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotDatabaseDesire(frontend,TotalNoofRows)
-
-```
-
-##LanguageDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(frontend,TotalNoofRows)
-
-```
-
-#Persona Data scientist{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 60K and Mean Salary of 101 K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,AWS,Raspberry Pi in the Platform area              
-
-* Most want to learn TensorFlow,Nodejs,Spark in the Framework area              
-
-* Most want to learn PostgreSQL,MongoDB,MySQL in the Database area      
-
-* Most want to learn Python,SQL and Javascript in the Language area        
-
-##Salary
-
-```{r,message=FALSE,warning=FALSE}
-
-data_scientist <- survey_results %>%
-  filter(str_detect(DevType,"Data scientist"))
-
-TotalNoofRows = nrow(data_scientist) 
-
-data_scientist %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(data_scientist$ConvertedSalary)
-
-```
-
-##Education Analysis
-
-###Formal Education
-
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
-
-```{r,message=FALSE,warning=FALSE}
-
-
-
-plotFormalEducation(data_scientist,TotalNoofRows)
-
-```
-
-###UnderGrad Major
-
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
-
-```{r,message=FALSE,warning=FALSE}
-
-plotUnderGradDegree(data_scientist,TotalNoofRows)
-
-```
-
-##PlatformDesire 
-
-```{r,message=FALSE,warning=FALSE}
-
-plotPlatformDesire(data_scientist,TotalNoofRows)
-
-```
-
-
-##FrameworkDesire
-
-```{r,message=FALSE,warning=FALSE}
-
-
-plotFrameworkDesire(data_scientist,TotalNoofRows)
-
 ```
-
-##DatabaseDesire
 
-```{r,message=FALSE,warning=FALSE}
 
-plotDatabaseDesire(data_scientist,TotalNoofRows)
+### 7.4 Most Exciting Aspect by Developer Type
 
-```
+```{r}
 
-##LanguageDesire
+survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
+                                                        unnest(DevType)
 
-```{r,message=FALSE,warning=FALSE}
+df1 <- survey_results_public2 %>%
+       filter(!is.na(DevType)) %>%
+       group_by(name = DevType, drilldown = tolower(DevType)) %>% 
+       summarise(y = n()) %>% arrange(desc(y))
 
-plotLanguageDesire(data_scientist,TotalNoofRows)
+df2 <-survey_results_public2 %>% filter(!is.na(DevType)) %>% filter(!is.na(AIInteresting)) %>% group_by(DevType,AIInteresting) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = DevType, id = tolower(DevType),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = AIInteresting, drilldown = tolower(paste(DevType,AIInteresting,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) 
+    )
+    
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Developer wise Opinion on Exciting Aspect of AI') %>%
+  hc_add_series(data = df1, name = "Developer Type",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
 
 ```
-
-
-#Persona Business Analyst{.tabset .tabset-fade .tabset-pills}
-
-* Median Salary around 58K and Mean Salary of 106 K           
-
-* Most have a Bachelor's degree in Computer Science             
-
-* Most want to learn Linux,Windows Desktop/Server,Android in the Platform area              
 
-* Most want to learn Nodejs,TensorFlow,Angular in the Framework area              
+### 7.5 Ramifications of Increasingly Advanced AI Technology
 
-* Most want to learn SQL Server,MySQL,PostgreSQL in the Database area      
+```{r}
 
-* Most want to learn SQL,Python, and Javascript in the Language area   
+by_AIResponsible <- survey_results_public %>%
+                        filter(!is.na(AIResponsible)) %>%
+                        group_by(AIResponsible) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(AIResponsible = reorder(AIResponsible,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100))
 
-##Salary
+highchart() %>%
+  hc_xAxis(categories = by_AIResponsible$AIResponsible) %>% 
+  hc_add_series(name = "Percent %", data = by_AIResponsible$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Ramifications of Increasingly Advanced AI Technology")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
-```{r,message=FALSE,warning=FALSE}
-
-business_analyst <- survey_results %>%
-  filter(str_detect(DevType,"business analyst"))
-
-TotalNoofRows = nrow(business_analyst) 
-
-business_analyst %>%
-    ggplot(aes(x = ConvertedSalary) )+
-    geom_histogram(fill = fillColor) +
-    scale_x_log10() +
-    scale_y_log10() + 
-    labs(x = 'Annual Salary' ,y = 'Count', title = paste("Distribution of", "Annual Salary")) +
-    theme_bw()
-
-
-summary(business_analyst$ConvertedSalary)
-
 ```
-
-##Education Analysis
-
-###Formal Education
 
-Answers for `Which of the following best describes the highest level of formal education that you have completed?`
+### 7.6 Take on the Future of Artificial Intelligence
 
-```{r,message=FALSE,warning=FALSE}
+```{r}
 
+by_AIFuture <- survey_results_public %>%
+                        filter(!is.na(AIFuture)) %>%
+                        group_by(AIFuture) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(AIFuture = reorder(AIFuture,Total)) %>%
+                        mutate(Percent = round(Total/sum(Total)*100))
 
+highchart() %>%
+  hc_xAxis(categories = by_AIFuture$AIFuture) %>% 
+  hc_add_series(name = "Percent %", data = by_AIFuture$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Take on the Future of Artificial Intelligence")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
-plotFormalEducation(business_analyst,TotalNoofRows)
 
 ```
 
-###UnderGrad Major
+<hr>
+# C. Employment Analysis
+<hr>
 
-Answers for `You previously indicated that you went to a college or university. Which of the following best describes your main field of study (aka 'major')?`
 
-```{r,message=FALSE,warning=FALSE}
+## 1. What is the Employment status
 
-plotUnderGradDegree(business_analyst,TotalNoofRows)
+### 1.1 Employment status
 
-```
-
-##PlatformDesire 
+```{r}
 
-```{r,message=FALSE,warning=FALSE}
+by_Employment <- survey_results_public %>%
+                        filter(!is.na(Employment)) %>%
+                        group_by(Employment) %>%
+                        summarise(Total = n())  %>%
+                        arrange(desc(Total)) %>%
+                        ungroup() %>%
+                        mutate(Employment = reorder(Employment,Total)) %>%
+                        mutate(Percent = (Total/sum(Total)*100)) %>%
+                        head(10)
 
-plotPlatformDesire(business_analyst,TotalNoofRows)
+highchart() %>%
+  hc_xAxis(categories = by_Employment$Employment) %>% 
+  hc_add_series(name = "Percent %", data = by_Employment$Percent, colorByPoint =  1) %>% 
+  hc_title(text = "Employment Status")  %>%
+  hc_chart(type = "bar", options3d = list(enabled = TRUE, beta = 1, alpha = 1)) %>% hc_add_theme(hc_theme_google())
 
 ```
-
-
-##FrameworkDesire
 
-```{r,message=FALSE,warning=FALSE}
+### 1.2 Employment Status By Country
 
 
-plotFrameworkDesire(business_analyst,TotalNoofRows)
+```{r}
 
-```
+df1 <- survey_results_public %>% filter(!is.na(Employment)) %>%
+  group_by(name = Employment, drilldown = tolower(Employment)) %>% 
+  summarise(y = n()) %>% arrange(desc(y)) %>% head(10)
 
-##DatabaseDesire
 
-```{r,message=FALSE,warning=FALSE}
+df2 <-survey_results_public %>% filter(!is.na(Employment)) %>% filter(!is.na(Country)) %>%  group_by(Employment,Country) %>% dplyr::mutate(y = n(),colorByPoint =  1) %>%arrange(desc(y))%>%
+  group_by(name = Employment, id = tolower(Employment),colorByPoint) %>% 
+  do(data = list_parse(
+                  mutate(.,name = Country, drilldown = tolower(paste(Employment,Country,sep=": "))) %>% 
+                      group_by(name,drilldown) %>% 
+                        summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+                            arrange(desc(y))) %>% head(10)
+    )
 
-plotDatabaseDesire(business_analyst,TotalNoofRows)
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_title(text = 'Employment Status By Country') %>%
+  hc_add_series(data = df1, name = "Employment Status",colorByPoint =  1) %>% 
+  hc_legend(enabled = FALSE) %>%
+  hc_xAxis(type = "category") %>% 
+  hc_yAxis(title = list(text = "Total Response"))  %>%
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series = list_parse(df2)
+  ) %>% hc_add_theme(hc_theme_google())
 
 ```
-
-##LanguageDesire
 
-```{r,message=FALSE,warning=FALSE}
-
-plotLanguageDesire(business_analyst,TotalNoofRows)
-
-```
+# *More Insights Incoming. Stay Tuned & Upvote!*
+Constructive criticism is welcome. If there are any suggestions or changes you would like to see in the Kernel please let us know.
