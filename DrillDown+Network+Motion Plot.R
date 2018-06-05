@@ -259,33 +259,67 @@ df1 <- survey_results_public2 %>%
   summarise(y = n()) %>% 
   arrange(desc(y))
 
-# df2 <-
+df2 <-
   survey_results_public2 %>% 
   filter(!is.na(EducationTypes)) %>% 
   filter(!is.na(TimeAfterBootcamp)) %>% 
   group_by(EducationTypes,TimeAfterBootcamp) %>% 
   dplyr::mutate(y = n(),colorByPoint =  1) %>%
-  select(EducationTypes,TimeAfterBootcamp, y, colorByPoint) %>% 
-  View()
+  # select(EducationTypes,TimeAfterBootcamp, y, colorByPoint) %>% 
+  # View()
   arrange(desc(y)) %>%
-  group_by(name = EducationTypes, id = tolower(EducationTypes),colorByPoint) %>% 
-  do(data = list_parse(
-    mutate(.,name = TimeAfterBootcamp, drilldown = tolower(paste(EducationTypes,TimeAfterBootcamp,sep=": "))) %>% 
-      group_by(name,drilldown) %>% 
-      summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+  group_by(name = EducationTypes, id = tolower(EducationTypes), colorByPoint) %>% 
+    # select(EducationTypes,TimeAfterBootcamp, y, colorByPoint)
+    do(data = list_parse(
+    mutate(.,name = TimeAfterBootcamp
+           , drilldown = tolower(paste(EducationTypes,
+                                     TimeAfterBootcamp,
+                                     sep=": "))
+           ) %>% 
+      group_by(name) %>% 
+      summarise(y=n()) %>% dplyr::select(name, y)   %>%
       arrange(desc(y))) 
-  )
+  ) %>% 
+  select(id, colorByPoint, data)
 
+  
+  
+
+survey_results_public2 %>% 
+  filter(!is.na(EducationTypes)) %>% 
+  filter(!is.na(TimeAfterBootcamp)) %>% 
+  group_by(EducationTypes,TimeAfterBootcamp) %>% 
+  dplyr::mutate(y = n(),colorByPoint =  1) %>%
+  # select(EducationTypes,TimeAfterBootcamp, y, colorByPoint) %>% 
+  # View()
+  arrange(desc(y)) %>%
+  group_by(name = EducationTypes, id = tolower(EducationTypes), colorByPoint) %>% 
+  mutate(name2 = TimeAfterBootcamp, drilldown = tolower(paste(EducationTypes,
+                                                               TimeAfterBootcamp,
+                                                               sep=": "))) %>% 
+  group_by(name2,drilldown) %>% 
+  summarise(y=n())%>% dplyr::select( drilldown, name2, y) %>%
+  arrange(desc(y))
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 highchart() %>% 
   hc_chart(type = "column") %>%
   hc_title(text = 'Types of Non-Degree Education Vs Time to get a Full-time Job as a Developer ') %>%
-  hc_add_series(data = df1, name = "Types of Non-Degree Education",colorByPoint =  1) %>% 
+  hc_add_series(data = df1, name = "Types of Non-Degree Education", colorByPoint =  1) %>% 
   hc_legend(enabled = FALSE) %>%
   hc_xAxis(type = "category") %>% 
-  # hc_drilldown(
-  #   allowPointDrilldown = TRUE,
-  #   series =list_parse(df2)
-  # ) %>% 
+  hc_drilldown(
+    allowPointDrilldown = TRUE,
+    series =list_parse(df2)
+  ) %>%
   hc_add_theme(hc_theme_google())
 
 
@@ -527,23 +561,17 @@ df2_nodes$color.highlight.border <- "darkred"
 visNetwork(df2_nodes, df2_edges, height = "500px", width = "100%") %>% visIgraphLayout(layout = "layout_with_lgl") %>% 
 visEdges(shadow = TRUE,
 color = list(color = "gray", highlight = "orange"))
-```
 
-#### **Insight**
 
-+ This is a network graph for the different types of developers.
-+ Each node represents the type of developer and the size of node denotes the number of developers belonging to each type.
-+ Each connecting edge between any two nodes denotes that the respondents chose both the developer types. The width of each edge denotes the nmber of respondents that chose both the developer types.
-+ It can be observed that the top 5 highest correlation is between:
-1. Back end developer --- Full stack developer
-2. Front end developer --- Full stack developer
-3. Back end developer --- Front end developer
-4. Full stack developer --- Database administrator
-5. Desktop or enterprise application developer --- Back end developer
 
-### 3.3 Who are the Open Source project contributors?
 
-```{r}
+
+
+
+
+
+
+
 
 survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
 unnest(DevType)
@@ -573,29 +601,22 @@ allowPointDrilldown = TRUE,
 series =list_parse(df2)
 ) %>% hc_add_theme(hc_theme_google())
 
-```
-
-#### **Insight**
-
-+ Note : It's a Drill down graph.
-+ This graph illustrates the detailed analysis of Open Source contributors.
-+ At upper level the graph illustrates whether the respondent answered Yes or No for Open Source project contribution.
-+ At deeper level for each answer choice, the graph illustrates the number of respondents belonging to each developer type.
-+ Yes : 135508
-+ No : 147354
-+ Top 3 developer types with highest respondents choosing "Yes" are:
-  1. Back-end developer : 24717
-2. Full-stack developer : 15949
-3. Front-end developer : 20829
-+ Top 3 developer types with highest respondents choosing "No" are:
-  1. Back-end developer : 28583
-2. Full-stack developer : 23524
-3. Front-end developer : 18873
-
-### 3.4 Coding as Hobby
 
 
-```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 survey_results_public2 <-  survey_results_public %>%    mutate(DevType = strsplit(as.character(DevType), ";"))  %>%
   unnest(DevType)
@@ -625,31 +646,22 @@ highchart() %>%
     series =list_parse(df2)
   ) %>% hc_add_theme(hc_theme_google())
 
-```
-
-#### **Insight**
-
-+ Note : It's a Drill down graph.
-+ This graph illustrates the detailed analysis of 'Is Coding a Hobby' respondents.
-+ At upper level the graph illustrates whether the respondent answered Yes or No for 'Is Coding a Hobby'.
-+ At deeper level for each answer choice, the graph illustrates the number of respondents belonging to each developer type.
-+ Yes : 235293
-+ No : 46569
-+ Top 3 developer types with highest respondents choosing "Yes" are:
-1. Back-end developer : 43791
-2. Full-stack developer : 36815
-3. Front-end developer : 28827
-+ Top 3 developer types with highest respondents choosing "No" are:
-1. Back-end developer : 9509
-2. Full-stack developer : 7538
-3. Front-end developer : 5995
-
-## 4. What is their Experience?
-
-### 4.1 No. of Years Coded Vs No. of Years Coded Professionally
 
 
-```{r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 df1 <- survey_results_public %>% filter(!is.na(YearsCoding)) %>%
 group_by(name = YearsCoding, drilldown = tolower(YearsCoding)) %>% 
