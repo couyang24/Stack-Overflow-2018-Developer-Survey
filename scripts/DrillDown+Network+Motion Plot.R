@@ -270,20 +270,38 @@ df2 <-
   arrange(desc(y)) %>%
   group_by(name = EducationTypes, id = tolower(EducationTypes), colorByPoint) %>% 
     # select(EducationTypes,TimeAfterBootcamp, y, colorByPoint)
-    do(data = list_parse(
+  do(data = list_parse(
     mutate(.,name = TimeAfterBootcamp
            , drilldown = tolower(paste(EducationTypes,
                                      TimeAfterBootcamp,
                                      sep=": "))
            ) %>% 
-      group_by(name) %>% 
-      summarise(y=n()) %>% dplyr::select(name, y)   %>%
+      group_by(name, drilldown) %>% 
+      summarise(y=n()) %>% dplyr::select(name, y, drilldown)   %>%
       arrange(desc(y))) 
-  ) %>% 
-  select(id, colorByPoint, data)
+  )
 
-  
-  
+
+df2 <-survey_results_public2 %>% 
+  filter(!is.na(EducationTypes)) %>% 
+  filter(!is.na(TimeAfterBootcamp)) %>% 
+  group_by(EducationTypes,TimeAfterBootcamp) %>% 
+  dplyr::mutate(y = n(),colorByPoint =  1) %>%
+  arrange(desc(y))%>%
+  group_by(name = EducationTypes, id = tolower(EducationTypes),colorByPoint) %>% 
+  do(data = list_parse(
+    mutate(.,name = TimeAfterBootcamp, drilldown = tolower(paste(EducationTypes,TimeAfterBootcamp,sep=": "))) %>% 
+      group_by(name,drilldown) %>% 
+      summarise(y=n())%>% dplyr::select(name, y, drilldown)   %>%
+      arrange(desc(y))) 
+  )
+
+
+
+
+
+
+
 
 survey_results_public2 %>% 
   filter(!is.na(EducationTypes)) %>% 
